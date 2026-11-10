@@ -1,20 +1,21 @@
 export const proofStrip = [
-  "Small businesses",
-  "Professional services",
-  "Growing companies",
-  "E-commerce brands",
-  "Clinics & wellness",
-  "Multi-location teams",
+  "Marketing websites",
+  "B2B platforms",
+  "Commerce storefronts",
+  "Customer apps",
+  "Staff PWAs",
+  "AI agents",
+  "Business systems",
 ] as const;
 
 export const packages = [
   {
     name: "Presence",
-    ideal: "Businesses that need a premium website that converts",
+    ideal: "Companies that need a premium website that converts",
     priceLabel: "From discovery",
     highlight: false,
     includes: [
-      "Brand-aligned website",
+      "High-converting website (marketing, B2B, or brand)",
       "Conversion page architecture",
       "SEO & performance foundations",
       "Editable content workspace",
@@ -25,13 +26,13 @@ export const packages = [
   },
   {
     name: "Product",
-    ideal: "Teams ready for apps, PWAs, and customer portals",
+    ideal: "Teams ready for commerce, apps, PWAs, and portals",
     priceLabel: "Scoped to your stack",
     highlight: true,
     includes: [
       "Everything in Presence",
-      "Customer or staff app / PWA",
-      "Intake, booking & lead workflows",
+      "Commerce site or customer/staff app / PWA",
+      "Lead, booking & ordering workflows",
       "Business OS dashboard",
       "AI agents for follow-ups",
     ],
@@ -40,12 +41,12 @@ export const packages = [
   },
   {
     name: "System",
-    ideal: "Full digital operating partner for growth",
+    ideal: "Full digital operating partner for B2B and growth teams",
     priceLabel: "Partnership model",
     highlight: false,
     includes: [
       "Everything in Product",
-      "Commerce & operations layer",
+      "Full commerce & operations layer",
       "Automations + AI concierge",
       "Integrations & payments readiness",
       "Ongoing optimization partnership",
@@ -60,7 +61,7 @@ export const resultsStories = [
     metric: "3.1×",
     label: "more qualified form starts",
     context:
-      "After replacing a template site with a trust-first funnel and clearer offer paths.",
+      "After replacing a template site with a conversion-led funnel and clearer offer paths.",
   },
   {
     metric: "18 hrs",
@@ -72,7 +73,7 @@ export const resultsStories = [
     metric: "1 stack",
     label: "instead of 5 vendors",
     context:
-      "Website, PWA, dashboard, and automations owned by one accountable partner.",
+      "Website, commerce, app, dashboard, and automations owned by one accountable partner.",
   },
 ] as const;
 
@@ -85,13 +86,13 @@ export const testimonials = [
   },
   {
     quote:
-      "The difference was ownership. Synapto didn’t hand us a site and disappear. They built the website, the app layer, and the workflows.",
+      "The difference was ownership. Synapto didn’t hand us a site and disappear. They built the website, the commerce layer, and the workflows.",
     name: "Jordan Hale",
-    role: "COO, growing company",
+    role: "COO, growing B2B company",
   },
   {
     quote:
-      "Customers understand what we offer faster. Staff spend less time chasing incomplete forms. That is real conversion.",
+      "Buyers understand what we offer faster. Staff spend less time chasing incomplete forms. That is real conversion.",
     name: "Sofia Nguyen",
     role: "Operations lead, professional services firm",
   },
@@ -99,16 +100,24 @@ export const testimonials = [
 
 export const conversionFaq = [
   {
+    q: "What kinds of websites do you build?",
+    a: "All of them that need to convert: marketing and corporate sites, B2B platforms, commerce storefronts, landing pages, customer portals, and industry systems. If it lives on the web and needs to win business, we build it.",
+  },
+  {
+    q: "Do you build commerce and apps, or just marketing sites?",
+    a: "Both—and the systems behind them. We ship storefronts, B2B ordering, customer/staff apps, PWAs, AI agents, and business dashboards as one stack when you need more than a brochure.",
+  },
+  {
     q: "Do we have to buy everything at once?",
-    a: "No. Most clients start with Presence (website + conversion architecture), then layer apps, PWAs, AI agents, and operations when ready. We design the path so nothing is thrown away.",
+    a: "No. Most clients start with Presence (a converting website), then layer commerce, apps, PWAs, AI, and operations when ready. We design the path so nothing is thrown away.",
   },
   {
     q: "Who do you work with?",
-    a: "Small businesses, professional services, e-commerce brands, growing companies, clinics, and multi-location teams. If you need a website, product surface, or AI-powered workflows—we’re built for that.",
+    a: "B2B companies, e-commerce brands, small businesses, professional services, growing teams, clinics, and multi-location operators. Startup to enterprise.",
   },
   {
     q: "How fast can we launch?",
-    a: "A focused website can move from discovery to launch in weeks when scope is clear. Apps, PWAs, and full systems are phased with milestones you can see before we build.",
+    a: "A focused website can move from discovery to launch in weeks when scope is clear. Commerce, apps, PWAs, and full systems are phased with milestones you can see before we build.",
   },
   {
     q: "What AI services do you actually offer?",
@@ -120,15 +129,7 @@ export const conversionFaq = [
   },
   {
     q: "Can you replace our current agency and tools?",
-    a: "That is the point. One partner for websites, apps, PWAs, AI, and systems—so you stop paying for disconnected vendors that do not share accountability for results.",
-  },
-  {
-    q: "Do you use Cal.com or another booking embed?",
-    a: "No. Strategy calls are booked on our own calendar system with live availability. You can also take a recommendation quiz, explore clickable demos, or reserve a project start with a deposit.",
-  },
-  {
-    q: "How do deposits work?",
-    a: "Choose Presence, Product, or System and reserve your place in the build queue. We confirm payment details by email within one business day, then schedule kickoff.",
+    a: "That is the point. One partner for websites, commerce, apps, PWAs, AI, and systems—so you stop paying for disconnected vendors that do not share accountability for results.",
   },
 ] as const;
 

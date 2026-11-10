@@ -13,7 +13,13 @@ type Cell = "yes" | "partial" | "no";
 
 const rows: { label: string; agency: Cell; diy: Cell; synapto: Cell }[] = [
   {
-    label: "High-converting business website",
+    label: "High-converting websites (marketing & B2B)",
+    agency: "partial",
+    diy: "partial",
+    synapto: "yes",
+  },
+  {
+    label: "Commerce storefronts & B2B ordering",
     agency: "partial",
     diy: "partial",
     synapto: "yes",
@@ -38,12 +44,6 @@ const rows: { label: string; agency: Cell; diy: Cell; synapto: Cell }[] = [
   },
   {
     label: "One accountable partner after launch",
-    agency: "partial",
-    diy: "no",
-    synapto: "yes",
-  },
-  {
-    label: "Built for trust, conversion & automation",
     agency: "partial",
     diy: "no",
     synapto: "yes",
@@ -92,8 +92,9 @@ export function ComparisonSection() {
             Agencies design. Builders template. Synapto converts and operates.
           </SectionHeading>
           <SectionLead className="mx-auto">
-            If you need a brochure site, hire a freelancer. If you need a system
-            that wins customers and runs the business, you need a different partner.
+            If you need a brochure, hire a freelancer. If you need websites,
+            commerce, apps, and systems that win customers and run the business,
+            you need a different partner.
           </SectionLead>
         </FadeIn>
       </div>

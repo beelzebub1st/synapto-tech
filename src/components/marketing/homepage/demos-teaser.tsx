@@ -18,11 +18,11 @@ export function DemosTeaserSection() {
             Fullscreen demos
           </p>
           <SectionHeading className="text-white">
-            See every product surface before the call.
+            See websites, apps, and systems before the call.
           </SectionHeading>
           <SectionLead className="text-white/65">
-            Website, PWA, mobile app, Business OS, automations, and AI agents —
-            click through the real experience.
+            Converting website, PWA, mobile app, Business OS, automations, and
+            AI agents — click through the real experience.
           </SectionLead>
         </FadeIn>
         <FadeIn delay={0.05}>

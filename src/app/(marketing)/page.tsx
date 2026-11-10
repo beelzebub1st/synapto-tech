@@ -21,14 +21,15 @@ import { ProofStrip } from "@/components/marketing/homepage/proof-strip";
 import { ResultsSection } from "@/components/marketing/homepage/results";
 import { TestimonialsSection } from "@/components/marketing/homepage/testimonials";
 import { TrustSection } from "@/components/marketing/homepage/trust";
+import { WebsiteTypesSection } from "@/components/marketing/homepage/website-types";
 import { StickyCtaBar } from "@/components/marketing/sticky-cta";
 import { brand } from "@/content/brand";
 
 export const metadata: Metadata = {
-  title: `${brand.name} — Websites, Apps, AI Agents & Systems`,
+  title: `${brand.name} — Websites, Commerce, Apps & Systems`,
   description: brand.tagline,
   openGraph: {
-    title: `${brand.name} — Websites, Apps, AI Agents & Systems`,
+    title: `${brand.name} — Websites, Commerce, Apps & Systems`,
     description: brand.tagline,
   },
 };
@@ -39,6 +40,7 @@ export default function HomePage() {
       <HeroSection />
       <ProofStrip />
       <OutcomesSection />
+      <WebsiteTypesSection />
       <CapabilitiesSection />
       <AiServicesSection />
       <ResultsSection />

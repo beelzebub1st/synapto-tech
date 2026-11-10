@@ -20,12 +20,12 @@ import { offerings } from "@/content/brand";
 
 const icons = [
   Sparkles,
+  Store,
   Smartphone,
   Bot,
-  Store,
-  Plug,
   ChartColumnIncreasing,
   Handshake,
+  Plug,
 ] as const;
 
 export function OfferingsSection() {
@@ -37,11 +37,11 @@ export function OfferingsSection() {
             Full partnership
           </p>
           <SectionHeading className="mx-auto">
-            Everything needed to launch, operate, and grow.
+            Websites. Commerce. Apps. Systems. Everything.
           </SectionHeading>
           <SectionLead className="mx-auto">
-            Presence, products, AI, commerce, and ongoing partnership—scoped as
-            one accountable system for small businesses through enterprise teams.
+            From converting marketing sites and B2B platforms to storefronts,
+            PWAs, AI agents, and full business systems—one partner owns the stack.
           </SectionLead>
         </FadeIn>
       </div>

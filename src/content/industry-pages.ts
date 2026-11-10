@@ -7,6 +7,64 @@ export type IndustryPageContent = {
 };
 
 export const industryPageContent: Record<string, IndustryPageContent> = {
+  "b2b-companies": {
+    headline: "B2B websites, portals, and systems that win complex deals",
+    subhead:
+      "From authority-led marketing sites to buyer portals, catalogs, and sales ops—built for longer cycles, multiple stakeholders, and high-trust conversion.",
+    challenges: [
+      "Brochure sites that don’t educate or qualify buyers",
+      "Sales collateral and pricing scattered across tools",
+      "No portal for accounts, orders, or partner workflows",
+    ],
+    outcomes: [
+      "A converting B2B site that clarifies offer and proof",
+      "Optional commerce / catalog for wholesale or account buyers",
+      "Apps, PWAs, and AI follow-ups that keep pipeline moving",
+    ],
+    highlights: [
+      {
+        title: "Buyer journey design",
+        description: "Clear paths from awareness to demo, RFQ, or account signup.",
+      },
+      {
+        title: "Account experiences",
+        description: "Portals and PWAs for status, documents, and repeat ordering.",
+      },
+      {
+        title: "Sales-ready ops",
+        description: "Lead agents, CRM handoffs, and dashboards your team can run.",
+      },
+    ],
+  },
+  "ecommerce-brands": {
+    headline: "Commerce sites and apps built to sell",
+    subhead:
+      "Storefronts, product systems, and customer apps that turn traffic into orders—with operations that don’t fall apart after launch.",
+    challenges: [
+      "Generic themes that look like every other shop",
+      "Catalog and checkout UX that kills conversion",
+      "Ops tools disconnected from the customer experience",
+    ],
+    outcomes: [
+      "Brand-first storefronts engineered for conversion",
+      "Customer apps/PWAs for loyalty and repeat purchase",
+      "Orders, content, and AI support in one operating layer",
+    ],
+    highlights: [
+      {
+        title: "Merchandising that converts",
+        description: "PDPs, collections, and campaigns designed around buyer intent.",
+      },
+      {
+        title: "Checkout confidence",
+        description: "Payment-ready flows with clear policies and mobile performance.",
+      },
+      {
+        title: "Post-purchase product",
+        description: "Accounts, status, and support surfaces that keep customers coming back.",
+      },
+    ],
+  },
   "small-businesses": {
     headline: "Digital systems that make a lean team look bigger",
     subhead:

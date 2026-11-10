@@ -9,7 +9,7 @@ export type DemoId =
 export const demos = [
   {
     id: "website" as const,
-    name: "Business website",
+    name: "Converting website",
     shortName: "Website",
     tagline: "A high-converting site — not a brochure template.",
     description:

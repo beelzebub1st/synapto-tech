@@ -32,10 +32,10 @@ export function StickyCtaBar() {
       <div className="flex items-center gap-3">
         <div className="min-w-0 flex-1">
           <p className="truncate text-sm font-semibold text-midnight">
-            Ready to convert more customers?
+            Need a site, shop, or app that converts?
           </p>
           <p className="truncate text-xs text-muted-foreground">
-            Quiz · demos · AI · live booking
+            Websites · commerce · apps · AI
           </p>
         </div>
         <Button asChild size="sm" className="shrink-0 touch-manipulation">

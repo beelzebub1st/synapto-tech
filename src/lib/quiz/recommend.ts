@@ -63,7 +63,7 @@ function buildInsight(answers: QuizAnswers, recommended: PackageKey) {
   if (answers.priority === "website") {
     bits.push("You need conversion on the public site first");
   } else if (answers.priority === "app") {
-    bits.push("Customers/staff need a product surface beyond a brochure site");
+    bits.push("You need commerce, a portal, or an app beyond a brochure site");
   } else if (answers.priority === "system") {
     bits.push("You’re ready for a connected operating layer");
   } else {
@@ -90,8 +90,8 @@ function buildInsight(answers: QuizAnswers, recommended: PackageKey) {
     recommended === "presence"
       ? "Presence locks brand + website conversion before you overbuild."
       : recommended === "product"
-        ? "Product pairs the website with an app/PWA, AI agents, and operating tools."
-        : "System is the full partner path — commerce, agents, and ops included.";
+        ? "Product pairs the website with commerce, an app/PWA, AI agents, and operating tools."
+        : "System is the full partner path — websites, commerce, apps, agents, and ops included.";
 
   return `${bits.join(", ")}. ${packageLine}`;
 }
@@ -116,36 +116,36 @@ export const PACKAGE_COPY: Record<
     vibe: "Trust-first · Convert-ready",
     firstWin: "A website that turns visitors into enquiries and sales.",
     bullets: [
-      "Conversion-led business website",
-      "Brand-aligned design system",
+      "Marketing, B2B, or brand website",
+      "Conversion architecture",
       "Editable content workspace",
       "Launch training",
     ],
   },
   product: {
     name: "Product",
-    tagline: "Website plus app/PWA, AI agents, and operating tools.",
+    tagline: "Website plus commerce, app/PWA, and AI tools.",
     depositCents: 350000,
     depositLabel: "€3,500",
-    vibe: "Website + product layer",
-    firstWin: "Customers use a real product — intake, status, follow-up.",
+    vibe: "Website + commerce/product layer",
+    firstWin: "Buyers use a real product — shop, portal, app, or PWA.",
     bullets: [
       "Everything in Presence",
-      "Customer or staff PWA/app",
-      "Intake + booking workflows",
+      "Commerce site or customer/staff app",
+      "Lead, booking & ordering workflows",
       "AI follow-up agents",
     ],
   },
   system: {
     name: "System",
-    tagline: "Full digital operating partner for growth.",
+    tagline: "Full digital partner for B2B and growth companies.",
     depositCents: 750000,
     depositLabel: "€7,500",
     vibe: "Full operating partner",
-    firstWin: "One stack for conversion, ops, agents, and growth.",
+    firstWin: "One stack for websites, commerce, apps, agents, and ops.",
     bullets: [
       "Everything in Product",
-      "Commerce & operations layer",
+      "Full commerce & operations layer",
       "Automations + call concierge",
       "Ongoing optimization partnership",
     ],
@@ -162,19 +162,19 @@ export const QUIZ_STEPS = [
       {
         value: "website",
         label: "A website that converts",
-        detail: "Trust-first pages that turn visits into enquiries and sales",
+        detail: "Marketing, B2B, or brand pages that turn visits into pipeline",
         icon: "globe",
       },
       {
         value: "app",
-        label: "An app or PWA",
-        detail: "Installable customer/staff product beyond a brochure site",
+        label: "Commerce, app, or PWA",
+        detail: "Storefront, portal, or installable product beyond a brochure site",
         icon: "smartphone",
       },
       {
         value: "system",
         label: "A full operating system",
-        detail: "Website, product, ops, agents — one accountable stack",
+        detail: "Website, commerce, apps, ops, agents — one accountable stack",
         icon: "layout",
       },
       {

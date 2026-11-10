@@ -19,11 +19,11 @@ export function PackagesSection() {
             Choose your starting point
           </p>
           <SectionHeading className="mx-auto">
-            Clear paths. Real outcomes. No mystery scope.
+            Start with a converting site. Grow into commerce, apps, and systems.
           </SectionHeading>
           <SectionLead className="mx-auto">
-            Start where you are. Expand when the business is ready. Every path is
-            designed so the next layer—including AI—plugs in cleanly.
+            Presence, Product, or System—every path is designed so websites,
+            storefronts, apps, and AI plug in cleanly when you are ready.
           </SectionLead>
         </FadeIn>
       </div>

@@ -11,7 +11,7 @@ export function ProofStrip() {
     <section className="border-b border-border/80 bg-white py-5 overflow-hidden">
       <div className="container-page mb-3">
         <p className="text-center text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
-          Built for businesses that need trust, conversion, and automation
+          Built for every surface that needs to convert
         </p>
       </div>
       <div className="relative">

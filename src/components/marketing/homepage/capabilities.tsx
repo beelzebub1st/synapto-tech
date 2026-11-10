@@ -18,11 +18,12 @@ export function CapabilitiesSection() {
             What we build
           </p>
           <SectionHeading className="mx-auto">
-            Websites. Apps. PWAs. AI. Systems.
+            Websites. Commerce. Apps. Systems.
           </SectionHeading>
           <SectionLead className="mx-auto">
-            One team ships the customer-facing product and the operating layer
-            behind it—so your business is not stuck stitching vendors together.
+            Marketing sites, B2B platforms, storefronts, customer apps, PWAs,
+            AI agents, and operating systems—shipped by one team so you stop
+            stitching vendors together.
           </SectionLead>
         </FadeIn>
       </div>

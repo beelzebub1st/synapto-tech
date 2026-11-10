@@ -2,36 +2,47 @@ export const brand = {
   name: "Synapto Tech",
   shortName: "Synapto",
   tagline:
-    "Websites, apps, PWAs, AI agents, and operating systems for small businesses, growing companies, and teams that need digital done right.",
+    "High-converting websites, commerce platforms, apps, PWAs, AI agents, and business systems for B2B, B2C, and every company that needs digital done right.",
   domain: "synaptotech.com",
   email: "hello@synaptotech.com",
 } as const;
 
 export const heroCopy = {
   brandSignal: "Synapto Tech",
-  headline: "Digital systems that win customers and run the business.",
+  headline: "Websites, commerce, and apps that convert—and systems that run the business.",
   support:
-    "From high-converting websites and PWAs to custom apps, AI agents, and workflow automations—one partner owns the stack for startups, SMBs, and enterprises.",
+    "We build marketing sites, B2B platforms, storefronts, customer apps, PWAs, AI agents, and full operating systems. One partner for every digital surface your company needs.",
   primaryCta: "Book a strategy call",
   secondaryCta: "Try live demos",
 } as const;
 
+export const websiteTypes = [
+  "Marketing websites",
+  "B2B platforms",
+  "Commerce storefronts",
+  "Corporate sites",
+  "Landing & campaign pages",
+  "Customer portals",
+  "Staff apps & PWAs",
+  "Industry systems",
+] as const;
+
 export const outcomes = [
   {
-    title: "Convert more visits",
-    text: "Sites and funnels designed for trust and clarity—not generic templates that stall buyers.",
+    title: "Sites that convert",
+    text: "Brand-first websites engineered for enquiries, demos, bookings, and sales—not templates that stall buyers.",
   },
   {
-    title: "Ship real products",
-    text: "Websites, mobile apps, and installable PWAs your customers and staff actually use.",
+    title: "Commerce that sells",
+    text: "B2C storefronts and B2B catalogs with orders, accounts, and payments wired for how you actually sell.",
   },
   {
-    title: "Automate the busywork",
-    text: "AI agents draft replies, qualify leads, chase incomplete work, and keep workflows moving—with humans in control.",
+    title: "Apps people use",
+    text: "Customer and staff apps plus installable PWAs that feel native and keep work moving.",
   },
   {
-    title: "Operate in one place",
-    text: "Catalog, orders, content, CRM-style ops, and staff tools connected as a living system.",
+    title: "Systems that scale",
+    text: "Dashboards, AI agents, automations, and integrations—one stack instead of five disconnected vendors.",
   },
 ] as const;
 
@@ -39,35 +50,41 @@ export const capabilities = [
   {
     title: "Websites",
     description:
-      "Brand-first sites that load fast, rank cleanly, and turn visitors into enquiries, bookings, and sales.",
+      "Every kind of high-converting site: marketing, corporate, B2B, campaign, and brand experiences built to win trust and drive action.",
     points: ["Conversion architecture", "SEO & performance", "CMS your team can edit"],
   },
   {
-    title: "Apps",
+    title: "Commerce",
     description:
-      "Customer and staff applications for portals, booking, and internal workflows—built around how you operate.",
-    points: ["Customer portals", "Staff tools", "Native-feel UX"],
+      "Storefronts and B2B ordering platforms—catalogs, carts, accounts, and checkout paths that match how your buyers buy.",
+    points: ["B2C storefronts", "B2B catalogs & ordering", "Orders & payments"],
   },
   {
-    title: "PWAs",
+    title: "Apps & PWAs",
     description:
-      "Installable progressive web apps that feel native, work offline-ready, and skip app-store friction.",
-    points: ["Home-screen install", "Push-ready foundations", "One codebase, many devices"],
+      "Customer portals, staff tools, and installable progressive web apps—native feel without app-store friction.",
+    points: ["Customer apps", "Staff tools", "Home-screen PWAs"],
   },
   {
-    title: "Systems",
+    title: "Systems & AI",
     description:
-      "Commerce, dashboards, AI agents, payments readiness, and integrations—wired as one operating layer.",
-    points: ["Business OS dashboard", "AI automations", "Payments & integrations"],
+      "Business OS dashboards, workflow automations, and AI agents that qualify leads, draft replies, and keep ops moving.",
+    points: ["Business OS", "AI agents", "Integrations"],
   },
 ] as const;
 
 export const offerings = [
   {
-    title: "Brand & Digital Presence",
+    title: "High-converting websites",
     description:
-      "Identity, websites, and customer-facing experiences that make your offer feel premium and clear.",
-    points: ["Brand systems", "High-converting pages", "Mobile-first UX"],
+      "Marketing, corporate, B2B, and campaign sites designed to turn attention into pipeline and revenue.",
+    points: ["Brand systems", "Conversion pages", "Mobile-first UX"],
+  },
+  {
+    title: "Commerce sites & platforms",
+    description:
+      "Sell products and services online—B2C retail or B2B wholesale—with catalogs, orders, and customer accounts.",
+    points: ["Storefronts", "B2B ordering", "Catalog & inventory UX"],
   },
   {
     title: "Apps & PWAs",
@@ -79,22 +96,16 @@ export const offerings = [
     title: "AI Agents & Automations",
     description:
       "Agents that qualify leads, draft replies, run follow-ups, and automate workflows with human approval gates.",
-    points: ["Lead & intake agents", "Auto messaging", "Workflow automation"],
+    points: ["Lead agents", "Auto messaging", "Workflow automation"],
   },
   {
-    title: "Commerce & Operations",
+    title: "Business systems",
     description:
-      "Sell products and services with catalogs, orders, customers, and content in one dashboard.",
-    points: ["Storefronts", "Orders & customers", "Staff dashboard"],
+      "Dashboards for content, orders, customers, and ops—connected as one operating layer.",
+    points: ["Business OS", "Staff workspace", "Analytics"],
   },
   {
-    title: "Integrations & Payments",
-    description:
-      "Connect CRM, email, domains, and payment providers approved for your business.",
-    points: ["Payment-ready", "Tool connections", "Custom domains"],
-  },
-  {
-    title: "Launch & Partnership",
+    title: "Launch & partnership",
     description:
       "Discovery, build, training, and ongoing optimization—so you are never left alone after go-live.",
     points: ["Guided onboarding", "Team training", "Continuous improvement"],
@@ -103,9 +114,19 @@ export const offerings = [
 
 export const industries = [
   {
+    name: "B2B Companies",
+    slug: "b2b-companies",
+    description: "Platforms, portals, and sales sites built for complex buyers and longer deals.",
+  },
+  {
+    name: "E-commerce Brands",
+    slug: "ecommerce-brands",
+    description: "Storefronts, product systems, and apps that turn browsers into buyers.",
+  },
+  {
     name: "Small Businesses",
     slug: "small-businesses",
-    description: "Websites, booking, and AI follow-ups that make a lean team look bigger.",
+    description: "Websites, booking, commerce, and AI follow-ups that make a lean team look bigger.",
   },
   {
     name: "Professional Services",
@@ -120,17 +141,7 @@ export const industries = [
   {
     name: "Medical Clinics",
     slug: "medical-clinics",
-    description: "End-to-end digital systems for licensed clinics.",
-  },
-  {
-    name: "Wellness Providers",
-    slug: "wellness-providers",
-    description: "Premium experiences for wellness brands that need trust and clarity.",
-  },
-  {
-    name: "Healthcare Brands",
-    slug: "healthcare-brands",
-    description: "Connected systems for licensed healthcare product businesses.",
+    description: "End-to-end digital systems for licensed clinics and healthcare brands.",
   },
 ] as const;
 
@@ -162,10 +173,10 @@ export const footerLinks = {
     { label: "Dashboard", href: "/login" },
   ],
   solutions: [
+    { label: "B2B Companies", href: "/solutions/b2b-companies" },
+    { label: "E-commerce Brands", href: "/solutions/ecommerce-brands" },
     { label: "Small Businesses", href: "/solutions/small-businesses" },
-    { label: "Professional Services", href: "/solutions/professional-services" },
     { label: "Growing Companies", href: "/solutions/growing-companies" },
-    { label: "Medical Clinics", href: "/solutions/medical-clinics" },
   ],
   company: [
     { label: "About", href: "/about" },
@@ -193,12 +204,12 @@ export const footerLinks = {
 } as const;
 
 export const businessTypes = [
+  "B2B / Enterprise",
+  "E-commerce / Product Brand",
   "Small Business / Local Brand",
   "Professional Services / Agency",
-  "E-commerce / Product Brand",
   "SaaS / Tech Company",
-  "Medical / Wellness Clinic",
-  "Enterprise / Multi-location",
+  "Medical / Wellness",
   "Other",
 ] as const;
 

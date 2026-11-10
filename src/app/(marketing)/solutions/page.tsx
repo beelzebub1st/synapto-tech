@@ -10,7 +10,7 @@ import { pageMetadata } from "@/lib/page-metadata";
 
 export const metadata = pageMetadata(
   "Solutions",
-  "Digital systems for small businesses, professional services, growing companies, clinics, wellness brands, and healthcare teams.",
+  "Websites, commerce, apps, and systems for B2B companies, e-commerce brands, small businesses, professional services, and growing teams.",
   { path: "/solutions" }
 );
 
@@ -19,8 +19,8 @@ export default function SolutionsPage() {
     <>
       <PageHero
         eyebrow="Solutions"
-        title="Built around how your business actually operates"
-        lead="Explore vertical landing pages with outcomes, challenges, and launch paths—websites, apps, AI agents, and systems aligned to your model."
+        title="Built for how you sell—B2B, commerce, or brand"
+        lead="Explore vertical paths for converting websites, storefronts, apps, AI agents, and business systems aligned to your model."
         align="center"
       />
 
@@ -28,8 +28,8 @@ export default function SolutionsPage() {
         <FadeIn>
           <SectionEyebrow className="text-center">Who we serve</SectionEyebrow>
           <SectionLead className="mx-auto text-center">
-            Select your segment to see how Synapto Tech supports your brand,
-            product surfaces, AI workflows, and operations—not a generic template.
+            Select your segment to see how Synapto Tech ships websites, commerce,
+            apps, and systems—not a generic template.
           </SectionLead>
         </FadeIn>
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
