@@ -4,10 +4,7 @@ const nextConfig: NextConfig = {
   output: "standalone",
   cacheComponents: true,
   partialPrefetching: true,
-  // Vercel: skip ESLint + TypeScript gate during production builds
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  // Vercel: skip TypeScript gate during production builds
   typescript: {
     ignoreBuildErrors: true,
   },

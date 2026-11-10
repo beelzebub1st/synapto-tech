@@ -5,5 +5,8 @@
   "buildCommand": "next build",
   "github": {
     "silent": true
+  },
+  "git": {
+    "deploymentEnabled": true
   }
 }
