@@ -7,22 +7,30 @@ import {
   ArrowLeft,
   ArrowRight,
   Ban,
+  Bot,
+  Briefcase,
   Building2,
   CalendarDays,
   Check,
   Compass,
+  Factory,
   Globe2,
+  Layers,
   LayoutDashboard,
   Loader2,
+  Mail,
   RefreshCw,
   ShoppingCart,
   Smartphone,
   Sparkles,
+  Store,
+  TabletSmartphone,
   Target,
   Timer,
   TrendingUp,
   User,
   Users,
+  Workflow,
   Zap,
 } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
@@ -57,6 +65,14 @@ const ICONS = {
   cart: ShoppingCart,
   clock: Timer,
   ban: Ban,
+  factory: Factory,
+  briefcase: Briefcase,
+  store: Store,
+  device: TabletSmartphone,
+  layers: Layers,
+  bot: Bot,
+  workflow: Workflow,
+  mail: Mail,
 } as const;
 
 export function QuizFlow() {
@@ -68,6 +84,8 @@ export function QuizFlow() {
     fullName: "",
     email: "",
     clinicName: "",
+    website: "",
+    role: "",
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -114,7 +132,16 @@ export function QuizFlow() {
       const res = await fetch("/api/quiz", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ answers, ...contact }),
+        body: JSON.stringify({
+          answers: {
+            ...answers,
+            website: contact.website || undefined,
+            role: contact.role || undefined,
+          },
+          fullName: contact.fullName,
+          email: contact.email,
+          clinicName: contact.clinicName,
+        }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "Could not score quiz.");
@@ -212,15 +239,15 @@ export function QuizFlow() {
             >
               <p className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-primary">
                 <Sparkles className="h-3.5 w-3.5" />
-                2-minute pathfinder
+                Business pathfinder
               </p>
               <h1 className="mt-5 max-w-3xl font-display text-[clamp(2.6rem,8vw,5rem)] font-semibold leading-[0.94] tracking-tight text-white">
                 Stop guessing your digital stack.
               </h1>
               <p className="mt-5 max-w-xl text-base leading-relaxed text-white/60 sm:text-lg">
-                Answer five sharp questions. We’ll score Presence, Product, or
-                System — then show your first win, deposit to reserve, and next
-                step.
+                Twelve questions about your business, goals, product needs, and
+                AI appetite. We’ll score Presence, Product, or System — then show
+                your first win and next step.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button
@@ -243,7 +270,7 @@ export function QuizFlow() {
               </div>
               <div className="mt-10 grid gap-3 sm:grid-cols-3">
                 {[
-                  { label: "5 questions", detail: "No fluff, no pitch deck" },
+                  { label: "12 questions", detail: "Business, goals, stack, AI" },
                   { label: "Scored match", detail: "Presence · Product · System" },
                   { label: "Clear next step", detail: "Call or reserve start" },
                 ].map((item) => (
@@ -418,6 +445,36 @@ export function QuizFlow() {
                     className="h-12 border-white/15 bg-white/5 text-white placeholder:text-white/30"
                     placeholder="Acme Studio"
                   />
+                </div>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="space-y-2">
+                    <Label htmlFor="quiz-role" className="text-white/70">
+                      Your role
+                    </Label>
+                    <Input
+                      id="quiz-role"
+                      value={contact.role}
+                      onChange={(e) =>
+                        setContact({ ...contact, role: e.target.value })
+                      }
+                      className="h-12 border-white/15 bg-white/5 text-white placeholder:text-white/30"
+                      placeholder="Founder, marketing, ops…"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="quiz-website" className="text-white/70">
+                      Current website
+                    </Label>
+                    <Input
+                      id="quiz-website"
+                      value={contact.website}
+                      onChange={(e) =>
+                        setContact({ ...contact, website: e.target.value })
+                      }
+                      className="h-12 border-white/15 bg-white/5 text-white placeholder:text-white/30"
+                      placeholder="yoursite.com"
+                    />
+                  </div>
                 </div>
                 {error ? (
                   <p className="text-sm text-red-300">{error}</p>

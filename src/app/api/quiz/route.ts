@@ -6,11 +6,27 @@ import { recommendPackage, type QuizAnswers } from "@/lib/quiz/recommend";
 
 const bodySchema = z.object({
   answers: z.object({
+    industry: z.enum([
+      "b2b",
+      "ecommerce",
+      "services",
+      "saas",
+      "local",
+      "other",
+    ]),
+    size: z.enum(["solo", "smb", "mid", "enterprise"]),
     priority: z.enum(["website", "app", "system", "unsure"]),
     stage: z.enum(["idea", "redesign", "scaling"]),
-    team: z.enum(["solo", "small", "multi"]),
-    urgency: z.enum(["asap", "month", "quarter"]),
+    goal: z.enum(["leads", "sales", "bookings", "portal", "brand"]),
     commerce: z.enum(["yes", "later", "no"]),
+    productSurface: z.enum(["none", "pwa", "native", "both"]),
+    automation: z.enum(["none", "basic", "agents", "full"]),
+    team: z.enum(["solo", "small", "multi"]),
+    pain: z.enum(["conversion", "tools", "followup", "ops", "brand"]),
+    budget: z.enum(["lean", "standard", "growth", "enterprise"]),
+    urgency: z.enum(["asap", "month", "quarter"]),
+    website: z.string().optional(),
+    role: z.string().optional(),
   }),
   email: z.string().email().optional(),
   fullName: z.string().optional(),
@@ -27,7 +43,9 @@ export async function POST(request: Request) {
     );
   }
 
-  const result = recommendPackage(parsed.data.answers as QuizAnswers);
+  const { website: _website, role: _role, ...scoringAnswers } =
+    parsed.data.answers;
+  const result = recommendPackage(scoringAnswers as QuizAnswers);
   let id: string | null = null;
 
   if (hasDatabase()) {

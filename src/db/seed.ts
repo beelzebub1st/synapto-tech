@@ -467,17 +467,24 @@ async function seed() {
   if (!existingQuizzes.length) {
     await db.insert(quizResults).values({
       answers: {
+        industry: "services",
+        size: "smb",
         priority: "app",
         stage: "redesign",
-        team: "small",
-        urgency: "month",
+        goal: "leads",
         commerce: "later",
+        productSurface: "pwa",
+        automation: "agents",
+        team: "small",
+        pain: "followup",
+        budget: "standard",
+        urgency: "month",
       },
       recommendedPackage: "product",
-      scoreBreakdown: { presence: 2, product: 8, system: 3 },
-      email: "elena@northridge.test",
+      scoreBreakdown: { presence: 4, product: 14, system: 6 },
+      email: "elena@northline.test",
       fullName: "Elena Voss",
-      clinicName: "Northridge Wellness",
+      clinicName: "Northline Advisory",
     });
   }
 

@@ -54,7 +54,7 @@ export default function BookADemoPage() {
                 Prefer to self-qualify first?
               </p>
               <p className="text-sm leading-relaxed text-muted-foreground">
-                Take the 2-minute recommendation quiz, explore clickable demos,
+                Take the business recommendation quiz, explore clickable demos,
                 or reserve a project start with a deposit.
               </p>
               <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium text-primary">

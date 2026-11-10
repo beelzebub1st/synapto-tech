@@ -136,8 +136,8 @@ export const conversionFaq = [
 export const midCta = {
   eyebrow: "Next step",
   title: "Get a clear plan for your digital stack.",
-  text: "Take the package quiz, click through demos, then book a live strategy slot — or reserve project start when you’re ready.",
-  primary: "Take the package quiz",
+  text: "Take the business quiz, click through demos, then book a live strategy slot — or reserve project start when you’re ready.",
+  primary: "Take the business quiz",
   secondary: "Try live demos",
 } as const;
 

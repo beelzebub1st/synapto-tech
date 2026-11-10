@@ -86,7 +86,7 @@ export function HeroSection({ className }: { className?: string }) {
               </Button>
             </div>
             <p className="text-sm text-white/50">
-              Live booking · AI agents · demos · 2-min quiz
+              Live booking · AI agents · demos · business quiz
             </p>
           </motion.div>
         </div>
