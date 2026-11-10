@@ -21,8 +21,8 @@ export function DemosTeaserSection() {
             See websites, apps, and systems before the call.
           </SectionHeading>
           <SectionLead className="text-white/65">
-            Converting website, PWA, mobile app, Business OS, automations, and
-            AI agents — click through the real experience.
+            Distinct website templates by business type, plus PWA, mobile app,
+            Business OS, automations, and AI — click through the real experience.
           </SectionLead>
         </FadeIn>
         <FadeIn delay={0.05}>
