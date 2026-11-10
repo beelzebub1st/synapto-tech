@@ -14,7 +14,7 @@ import { pageMetadata } from "@/lib/page-metadata";
 
 export const metadata = pageMetadata(
   "Case studies",
-  "See how Synapto Tech rebuilds clinic websites, PWAs, and operating systems that convert and run the business.",
+  "See how Synapto Tech ships converting websites, commerce, apps, PWAs, and operating systems for B2B and growth teams.",
   { path: "/work" }
 );
 
@@ -23,7 +23,7 @@ export default function WorkPage() {
     <>
       <PageHero
         eyebrow="Case studies"
-        title="Proof from clinics that shipped with us."
+        title="Proof from teams that shipped with us."
         lead="Real packages, real delivery stacks, and the metrics that matter — qualified enquiries, admin hours saved, and tools consolidated."
       />
       <Section className="pt-0 md:pt-4">
@@ -71,7 +71,7 @@ export default function WorkPage() {
         <div className="mx-auto max-w-2xl text-center">
           <FadeIn>
             <SectionHeading className="mx-auto">
-              Want a scoped outline for your clinic?
+              Want a scoped outline for your business?
             </SectionHeading>
             <SectionLead className="mx-auto">
               Generate a package proposal outline, then reserve start or book a

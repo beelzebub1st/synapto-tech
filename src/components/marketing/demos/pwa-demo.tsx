@@ -4,42 +4,153 @@ import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
-  Bell,
   Check,
   Download,
   Home,
   ListChecks,
-  Share,
   UserRound,
   Wifi,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const intakeSteps = [
+type UseCaseId = "portal" | "membership" | "reorder" | "field";
+type Tab = "home" | "flow" | "status";
+
+const useCases: Record<
+  UseCaseId,
   {
-    title: "About you",
-    fields: ["Preferred name", "Clinic location", "Best contact time"],
+    label: string;
+    appName: string;
+    eyebrow: string;
+    homeTitle: string;
+    homeHint: string;
+    flowLabel: string;
+    steps: { title: string; fields: string[] }[];
+    statusTitle: string;
+    statusItems: { label: string; state: string }[];
+  }
+> = {
+  portal: {
+    label: "Account portal",
+    appName: "Atlas Portal",
+    eyebrow: "B2B portal",
+    homeTitle: "Quotes, docs, and orders in one install.",
+    homeHint: "Buyers check status without emailing sales.",
+    flowLabel: "New RFQ",
+    steps: [
+      { title: "Account", fields: ["Company", "Buyer name", "Ship-to site"] },
+      { title: "Requirements", fields: ["SKU / part", "Quantity", "Need-by date"] },
+      { title: "Files", fields: ["Drawing PDF", "Spec sheet", "PO (optional)"] },
+    ],
+    statusTitle: "Open requests",
+    statusItems: [
+      { label: "RFQ-1842", state: "Awaiting files" },
+      { label: "Order #991", state: "In production" },
+      { label: "Quote Q-77", state: "Ready to approve" },
+    ],
   },
-  {
-    title: "Health context",
-    fields: ["Primary goals", "Current medications", "Allergies"],
+  membership: {
+    label: "Membership",
+    appName: "Cedar Member",
+    eyebrow: "Membership PWA",
+    homeTitle: "Book visits and manage your plan.",
+    homeHint: "Members install once and skip the front desk queue.",
+    flowLabel: "Update profile",
+    steps: [
+      { title: "You", fields: ["Preferred name", "Location", "Best time"] },
+      { title: "Plan", fields: ["Membership tier", "Add-ons", "Billing contact"] },
+      { title: "Prefs", fields: ["Reminders", "Marketing opt-in", "Notes"] },
+    ],
+    statusTitle: "This week",
+    statusItems: [
+      { label: "Thu 10:30", state: "Booked" },
+      { label: "Credits left", state: "3 visits" },
+      { label: "Renewal", state: "Apr 12" },
+    ],
   },
-  {
-    title: "Documents",
-    fields: ["Photo ID", "Referral letter", "Insurance card (optional)"],
+  reorder: {
+    label: "Reorder",
+    appName: "Harbor Repeat",
+    eyebrow: "Commerce PWA",
+    homeTitle: "Reorder favorites in two taps.",
+    homeHint: "Returning buyers skip the full storefront hunt.",
+    flowLabel: "Quick reorder",
+    steps: [
+      { title: "Items", fields: ["Essentials kit", "Refill pack", "Gift wrap"] },
+      { title: "Ship", fields: ["Address on file", "Delivery window", "Notes"] },
+      { title: "Pay", fields: ["Card on file", "Invoice", "Promo code"] },
+    ],
+    statusTitle: "Recent orders",
+    statusItems: [
+      { label: "#4821", state: "Shipped" },
+      { label: "#4799", state: "Delivered" },
+      { label: "Subscription", state: "Next: May 3" },
+    ],
   },
-] as const;
+  field: {
+    label: "Field ops",
+    appName: "FieldCheck",
+    eyebrow: "Staff PWA",
+    homeTitle: "Checklists that work on-site.",
+    homeHint: "Installable for crews—even on shared devices.",
+    flowLabel: "Site checklist",
+    steps: [
+      { title: "Job", fields: ["Site ID", "Crew lead", "Start time"] },
+      { title: "Checks", fields: ["Safety", "Equipment", "Photos"] },
+      { title: "Sign-off", fields: ["Customer name", "Signature", "Issues"] },
+    ],
+    statusTitle: "Today’s jobs",
+    statusItems: [
+      { label: "Site A-12", state: "In progress" },
+      { label: "Site B-04", state: "Queued" },
+      { label: "Site C-19", state: "Complete" },
+    ],
+  },
+};
 
 export function PwaDemo() {
   const reduce = useReducedMotion();
-  const [tab, setTab] = useState<"home" | "intake" | "status">("home");
+  const [useCase, setUseCase] = useState<UseCaseId>("portal");
+  const [tab, setTab] = useState<Tab>("home");
   const [step, setStep] = useState(0);
   const [installed, setInstalled] = useState(false);
   const [done, setDone] = useState(false);
+  const data = useCases[useCase];
+
+  function switchUseCase(id: UseCaseId) {
+    setUseCase(id);
+    setTab("home");
+    setStep(0);
+    setDone(false);
+    setInstalled(false);
+  }
 
   return (
-    <div className="flex min-h-[calc(100dvh-3.5rem)] items-center justify-center bg-[radial-gradient(ellipse_at_top,#134e4a_0%,#071216_55%)] px-3 py-6 sm:px-6">
+    <div className="flex min-h-[calc(100dvh-3.5rem)] flex-col items-center bg-[radial-gradient(ellipse_at_top,#134e4a_0%,#071216_55%)] px-3 py-4 sm:px-6 sm:py-6">
+      <div className="mb-3 w-full max-w-[390px]">
+        <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.16em] text-white/45">
+          Use case
+        </p>
+        <div className="flex gap-2 overflow-x-auto pb-1">
+          {(Object.keys(useCases) as UseCaseId[]).map((id) => (
+            <button
+              key={id}
+              type="button"
+              onClick={() => switchUseCase(id)}
+              className={cn(
+                "shrink-0 rounded-full px-3 py-1.5 text-xs font-medium",
+                useCase === id
+                  ? "bg-primary text-white"
+                  : "bg-white/10 text-white/70"
+              )}
+            >
+              {useCases[id].label}
+            </button>
+          ))}
+        </div>
+      </div>
+
       <div className="relative w-full max-w-[390px]">
         {!installed ? (
           <motion.div
@@ -52,9 +163,9 @@ export function PwaDemo() {
                 <Download className="h-4 w-4" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-sm font-semibold">Install Northside Care</p>
+                <p className="text-sm font-semibold">Install {data.appName}</p>
                 <p className="mt-0.5 text-xs text-white/65">
-                  Add to home screen · works offline-ready · no App Store wait
+                  Add to home screen · offline-ready · no App Store wait
                 </p>
               </div>
             </div>
@@ -91,202 +202,160 @@ export function PwaDemo() {
             <div className="flex items-center justify-between border-b border-[#d5e0dd] bg-white px-4 py-3">
               <div>
                 <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-primary">
-                  Patient PWA
+                  {data.eyebrow}
                 </p>
                 <p className="font-display text-lg font-semibold text-[#0c1a1f]">
-                  Northside Care
+                  {data.appName}
                 </p>
               </div>
               <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#e4ecea] text-[#0c1a1f]">
-                <Bell className="h-3.5 w-3.5" />
+                <UserRound className="h-4 w-4" />
               </div>
             </div>
 
-            <div className="min-h-[470px] p-4">
+            <div className="min-h-[470px] px-4 py-4 pb-20">
               <AnimatePresence mode="wait">
                 <motion.div
-                  key={tab + String(done) + step}
-                  initial={reduce ? false : { opacity: 0, x: 10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={reduce ? undefined : { opacity: 0, x: -8 }}
-                  transition={{ duration: 0.22 }}
+                  key={`${useCase}-${tab}-${step}-${String(done)}`}
+                  initial={reduce ? false : { opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={reduce ? undefined : { opacity: 0, y: -6 }}
+                  transition={{ duration: 0.2 }}
                 >
                   {tab === "home" ? (
                     <div>
-                      <p className="text-sm text-[#5a6b72]">Good afternoon</p>
-                      <h3 className="mt-1 font-display text-2xl font-semibold text-[#0c1a1f]">
-                        Continue your intake
+                      <h3 className="font-display text-2xl font-semibold text-[#0c1a1f]">
+                        {data.homeTitle}
                       </h3>
-                      <button
-                        type="button"
+                      <p className="mt-2 text-sm text-[#5a6b72]">{data.homeHint}</p>
+                      <Button
+                        className="mt-5 w-full touch-manipulation"
                         onClick={() => {
-                          setTab("intake");
+                          setTab("flow");
                           setStep(0);
                           setDone(false);
                         }}
-                        className="mt-5 w-full rounded-3xl bg-[#0c1a1f] p-5 text-left text-white"
                       >
-                        <div className="flex items-center justify-between">
-                          <p className="text-sm font-semibold">
-                            Longevity assessment
-                          </p>
-                          <Share className="h-4 w-4 text-white/50" />
-                        </div>
-                        <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-white/15">
-                          <div className="h-full w-2/3 rounded-full bg-primary" />
-                        </div>
-                        <p className="mt-2 text-xs text-white/55">
-                          2 of 3 sections complete
-                        </p>
-                        <p className="mt-4 inline-flex items-center gap-1 text-sm text-[#5eead4]">
-                          Resume packet
-                          <ArrowRight className="h-3.5 w-3.5" />
-                        </p>
-                      </button>
+                        Start {data.flowLabel}
+                        <ArrowRight className="h-4 w-4" />
+                      </Button>
                       <button
                         type="button"
+                        className="mt-3 w-full rounded-2xl border border-[#d5e0dd] bg-white p-4 text-left"
                         onClick={() => setTab("status")}
-                        className="mt-3 w-full rounded-3xl border border-[#d5e0dd] bg-white p-4 text-left"
                       >
                         <p className="text-sm font-semibold text-[#0c1a1f]">
-                          Visit status
+                          {data.statusTitle}
                         </p>
                         <p className="mt-1 text-xs text-[#5a6b72]">
-                          Clinician review in progress
+                          {data.statusItems[0].label} · {data.statusItems[0].state}
                         </p>
                       </button>
-                      {installed ? (
-                        <p className="mt-4 flex items-center gap-2 text-xs text-primary">
-                          <Check className="h-3.5 w-3.5" />
-                          Installed on home screen
-                        </p>
-                      ) : null}
                     </div>
                   ) : null}
 
-                  {tab === "intake" ? (
-                    done ? (
-                      <div className="rounded-3xl border border-primary/20 bg-white p-6 text-center">
-                        <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary">
-                          <Check className="h-5 w-5" />
+                  {tab === "flow" ? (
+                    <div>
+                      {done ? (
+                        <div className="rounded-2xl border border-primary/20 bg-white p-5 text-center">
+                          <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                            <Check className="h-5 w-5" />
+                          </div>
+                          <p className="mt-3 font-display text-xl font-semibold text-[#0c1a1f]">
+                            Submitted
+                          </p>
+                          <p className="mt-2 text-sm text-[#5a6b72]">
+                            Completeness agent can flag gaps before staff dig in.
+                          </p>
+                          <Button
+                            className="mt-4 w-full"
+                            variant="outline"
+                            onClick={() => setTab("status")}
+                          >
+                            View status
+                          </Button>
                         </div>
-                        <p className="mt-3 font-display text-xl font-semibold text-[#0c1a1f]">
-                          Packet complete
-                        </p>
-                        <p className="mt-2 text-sm text-[#5a6b72]">
-                          Completeness agents flag gaps before staff chase them.
-                        </p>
-                        <Button
-                          className="mt-5 w-full"
-                          onClick={() => setTab("status")}
-                        >
-                          View status
-                        </Button>
-                      </div>
-                    ) : (
-                      <div>
-                        <p className="text-xs text-[#5a6b72]">
-                          Step {step + 1} of {intakeSteps.length}
-                        </p>
-                        <h3 className="mt-2 font-display text-2xl font-semibold text-[#0c1a1f]">
-                          {intakeSteps[step].title}
-                        </h3>
-                        <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-[#e4ecea]">
-                          <div
-                            className="h-full rounded-full bg-primary transition-all"
-                            style={{
-                              width: `${((step + 1) / intakeSteps.length) * 100}%`,
+                      ) : (
+                        <>
+                          <p className="text-xs font-medium uppercase tracking-[0.14em] text-primary">
+                            Step {step + 1} of {data.steps.length}
+                          </p>
+                          <h3 className="mt-2 font-display text-2xl font-semibold text-[#0c1a1f]">
+                            {data.steps[step].title}
+                          </h3>
+                          <ul className="mt-4 space-y-2">
+                            {data.steps[step].fields.map((field) => (
+                              <li
+                                key={field}
+                                className="rounded-xl border border-[#d5e0dd] bg-white px-3 py-3 text-sm text-[#0c1a1f]"
+                              >
+                                {field}
+                              </li>
+                            ))}
+                          </ul>
+                          <Button
+                            className="mt-5 w-full touch-manipulation"
+                            onClick={() => {
+                              if (step < data.steps.length - 1) setStep(step + 1);
+                              else setDone(true);
                             }}
-                          />
-                        </div>
-                        <div className="mt-5 space-y-2">
-                          {intakeSteps[step].fields.map((field) => (
-                            <div
-                              key={field}
-                              className="rounded-2xl border border-[#d5e0dd] bg-white px-4 py-3.5 text-sm text-[#5a6b72]"
-                            >
-                              {field}
-                            </div>
-                          ))}
-                        </div>
-                        <Button
-                          className="mt-5 w-full touch-manipulation"
-                          onClick={() => {
-                            if (step < intakeSteps.length - 1) setStep(step + 1);
-                            else setDone(true);
-                          }}
-                        >
-                          {step < intakeSteps.length - 1
-                            ? "Continue"
-                            : "Submit packet"}
-                        </Button>
-                      </div>
-                    )
+                          >
+                            {step < data.steps.length - 1 ? "Continue" : "Submit"}
+                          </Button>
+                        </>
+                      )}
+                    </div>
                   ) : null}
 
                   {tab === "status" ? (
                     <div>
                       <h3 className="font-display text-2xl font-semibold text-[#0c1a1f]">
-                        Visit status
+                        {data.statusTitle}
                       </h3>
-                      <ul className="mt-5 space-y-3">
-                        {[
-                          { label: "Intake received", state: "done" },
-                          { label: "Completeness check", state: "done" },
-                          { label: "Clinician review", state: "active" },
-                          { label: "Consult scheduled", state: "todo" },
-                        ].map((item) => (
-                          <li
+                      <div className="mt-4 space-y-2">
+                        {data.statusItems.map((item) => (
+                          <div
                             key={item.label}
-                            className="flex items-center justify-between rounded-2xl border border-[#d5e0dd] bg-white px-4 py-3.5"
+                            className="flex items-center justify-between rounded-2xl border border-[#d5e0dd] bg-white px-4 py-3"
                           >
-                            <span className="text-sm font-medium text-[#0c1a1f]">
+                            <p className="text-sm font-medium text-[#0c1a1f]">
                               {item.label}
-                            </span>
-                            <span
-                              className={cn(
-                                "text-xs font-semibold",
-                                item.state === "done" && "text-primary",
-                                item.state === "active" && "text-amber-700",
-                                item.state === "todo" && "text-[#5a6b72]"
-                              )}
-                            >
-                              {item.state === "done"
-                                ? "Complete"
-                                : item.state === "active"
-                                  ? "In progress"
-                                  : "Pending"}
-                            </span>
-                          </li>
+                            </p>
+                            <p className="text-xs font-medium text-primary">
+                              {item.state}
+                            </p>
+                          </div>
                         ))}
-                      </ul>
+                      </div>
                     </div>
                   ) : null}
                 </motion.div>
               </AnimatePresence>
             </div>
 
-            <div className="grid grid-cols-3 border-t border-[#d5e0dd] bg-white px-2 py-2">
-              {(
-                [
-                  { id: "home", icon: Home, label: "Home" },
-                  { id: "intake", icon: ListChecks, label: "Intake" },
-                  { id: "status", icon: UserRound, label: "Status" },
-                ] as const
-              ).map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => setTab(item.id)}
-                  className={cn(
-                    "flex flex-col items-center gap-1 rounded-xl py-2 text-[11px] font-medium",
-                    tab === item.id ? "text-primary" : "text-[#5a6b72]"
-                  )}
-                >
-                  <item.icon className="h-4 w-4" />
-                  {item.label}
-                </button>
-              ))}
+            <div className="absolute inset-x-3 bottom-3 rounded-[1.25rem] border border-[#d5e0dd] bg-white/95 px-2 py-2 backdrop-blur">
+              <div className="grid grid-cols-3 gap-1">
+                {(
+                  [
+                    { id: "home" as const, label: "Home", icon: Home },
+                    { id: "flow" as const, label: data.flowLabel, icon: ListChecks },
+                    { id: "status" as const, label: "Status", icon: UserRound },
+                  ] as const
+                ).map((item) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => setTab(item.id)}
+                    className={cn(
+                      "flex flex-col items-center gap-1 rounded-xl py-2 text-[10px] font-medium",
+                      tab === item.id ? "text-primary" : "text-[#5a6b72]"
+                    )}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    <span className="truncate px-1">{item.label}</span>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>

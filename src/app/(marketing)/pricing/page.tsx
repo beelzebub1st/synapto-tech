@@ -15,7 +15,7 @@ import { pageMetadata } from "@/lib/page-metadata";
 
 export const metadata = pageMetadata(
   "Pricing",
-  "Consultation-led pricing for Synapto Tech—digital solutions, commerce platforms, and AI automations scoped to your practice.",
+  "Consultation-led pricing for Synapto Tech—websites, commerce, apps, and AI automations scoped to your business.",
   { path: "/pricing" }
 );
 
@@ -34,7 +34,7 @@ const packages = [
   {
     name: "Growth",
     summary:
-      "Commerce plus AI automations and deeper operations for clinics ready to scale.",
+      "Commerce plus AI automations and deeper operations for teams ready to scale.",
     includes: [
       "Everything in Essentials",
       "AI lead & follow-up automations",

@@ -9,16 +9,16 @@ import { pageMetadata } from "@/lib/page-metadata";
 
 export const metadata = pageMetadata(
   "Book a Strategy Call",
-  `Book a Synapto Tech strategy call — pick a live slot for clinic websites, apps, PWAs, and systems.`,
+  `Book a Synapto Tech strategy call — pick a live slot for websites, commerce, apps, PWAs, and systems.`,
   { path: "/book-a-demo" }
 );
 
 const demoTopics = [
-  "Clinic website redesign and brand identity",
-  "Apps / PWAs for patients and staff",
-  "Enquiry and booking conversion paths",
-  "AI agents for intake, messaging, and calls",
-  "Full Clinic OS for multi-location growth",
+  "High-converting websites (marketing, B2B, brand)",
+  "Commerce storefronts and B2B ordering",
+  "Apps / PWAs for customers and staff",
+  "AI agents for leads, messaging, and calls",
+  "Full Business OS for multi-team growth",
 ];
 
 export default function BookADemoPage() {
@@ -34,9 +34,9 @@ export default function BookADemoPage() {
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <FadeIn>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Strategy calls are for clinics, providers, and healthcare brands
-              exploring {brand.name}. Every conversation is tailored — no
-              generic pitch deck.
+              Strategy calls are for B2B teams, e-commerce brands, services
+              firms, and growing companies exploring {brand.name}. Every
+              conversation is tailored — no generic pitch deck.
             </p>
             <ul className="mt-8 space-y-3">
               {demoTopics.map((topic) => (

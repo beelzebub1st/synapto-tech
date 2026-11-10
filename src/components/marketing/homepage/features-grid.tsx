@@ -37,14 +37,14 @@ const features: FeatureItem[] = [
   {
     title: "Custom storefronts",
     description:
-      "Brand-forward templates and layout controls tailored to healthcare-oriented catalogs.",
+      "Brand-forward templates and layout controls tailored to how your catalog actually sells.",
     icon: Store,
     size: "large",
   },
   {
     title: "Mobile-first experiences",
     description:
-      "Fast, responsive storefronts where most patients and clients discover you.",
+      "Fast, responsive storefronts where most buyers and clients discover you.",
     icon: Smartphone,
     size: "large",
   },

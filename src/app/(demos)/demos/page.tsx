@@ -60,9 +60,9 @@ export default function DemosGalleryPage() {
             Click the product. Don’t imagine it.
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/60 sm:text-lg">
-            Immersive demos of the clinic website, installable PWA, mobile app,
-            system dashboard, automations, and AI agents — built the way Synapto
-            ships.
+            Immersive demos of converting websites, commerce, PWAs, mobile apps,
+            Business OS, automations, and AI agents — switch use cases by
+            category the way Synapto ships.
           </p>
         </motion.div>
 
@@ -102,9 +102,12 @@ export default function DemosGalleryPage() {
                   <p className="mt-2 text-sm leading-relaxed text-white/60">
                     {demo.tagline}
                   </p>
-                  <div className="mt-5 flex flex-wrap gap-x-3 gap-y-1">
-                    {demo.highlights.map((item) => (
-                      <span key={item} className="text-xs text-white/45">
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {demo.useCases.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-white/10 px-2 py-0.5 text-[10px] text-white/55"
+                      >
                         {item}
                       </span>
                     ))}

@@ -13,7 +13,7 @@ import { pageMetadata } from "@/lib/page-metadata";
 
 export const metadata = pageMetadata(
   "About",
-  `Learn about ${brand.name}—commerce infrastructure for clinics, wellness brands, and licensed healthcare businesses selling online.`,
+  `Learn about ${brand.name}—websites, commerce, apps, and systems for B2B, e-commerce, and growing companies.`,
   { path: "/about" }
 );
 
@@ -37,25 +37,25 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About"
-        title={`${brand.name} exists for healthcare businesses that sell seriously online`}
+        title={`${brand.name} exists for companies that need digital that actually converts`}
         lead={brand.tagline}
       />
 
       <Section>
         <FadeIn>
           <SectionEyebrow>Our story</SectionEyebrow>
-          <SectionHeading>From fragmented tools to one commerce layer</SectionHeading>
+          <SectionHeading>From fragmented tools to one accountable stack</SectionHeading>
           <SectionLead>
-            We started Synapto Tech after watching clinics and wellness brands stitch together
-            website builders, payment links, spreadsheets, and disconnected dashboards. Patients
-            noticed the friction—and teams burned time reconciling orders instead of serving
-            clients.
+            We started Synapto Tech after watching B2B teams, e-commerce brands, and growing
+            companies stitch together website builders, payment links, spreadsheets, and
+            disconnected dashboards. Buyers noticed the friction—and teams burned time
+            reconciling work instead of winning customers.
           </SectionLead>
           <div className="mt-8 max-w-3xl space-y-4 text-sm leading-relaxed text-muted-foreground md:text-base">
             <p>
-              {brand.name} is commerce infrastructure: premium storefronts, catalog management,
-              checkout integrations, and operational visibility in one platform. We focus on
-              licensed healthcare-oriented businesses—not general retail marketplaces.
+              {brand.name} builds converting websites, commerce platforms, apps, PWAs, AI
+              agents, and business systems—as one partner. We focus on outcomes: pipeline,
+              orders, and operations that stay connected after launch.
             </p>
             <p>
               We partner with teams during onboarding to understand catalog rules, integrations,

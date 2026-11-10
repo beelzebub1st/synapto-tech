@@ -14,32 +14,170 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const nav = [
-  { id: "overview", label: "Overview", icon: LayoutDashboard },
-  { id: "intake", label: "Intake", icon: ClipboardList },
-  { id: "patients", label: "Patients", icon: Users },
-  { id: "orders", label: "Orders", icon: Package },
-  { id: "agents", label: "Agents", icon: Bot },
-] as const;
+type IndustryId = "b2b" | "commerce" | "services";
+type View = "overview" | "queue" | "customers" | "orders" | "agents";
 
-type View = (typeof nav)[number]["id"];
+const nav = [
+  { id: "overview" as const, label: "Overview", icon: LayoutDashboard },
+  { id: "queue" as const, label: "Queue", icon: ClipboardList },
+  { id: "customers" as const, label: "Customers", icon: Users },
+  { id: "orders" as const, label: "Orders", icon: Package },
+  { id: "agents" as const, label: "Agents", icon: Bot },
+];
+
+const industries: Record<
+  IndustryId,
+  {
+    label: string;
+    brand: string;
+    search: string;
+    stats: { label: string; value: string; tone: string }[];
+    attention: string[];
+    queueTitle: string;
+    queueRows: { name: string; detail: string; status: string; tone: string }[];
+    customers: string[];
+    orders: { id: string; name: string; status: string; total: string }[];
+    agentDraft: string;
+  }
+> = {
+  b2b: {
+    label: "B2B ops",
+    brand: "Atlas Ops",
+    search: "Search accounts, RFQs, orders…",
+    stats: [
+      { label: "Open RFQs", value: "12", tone: "text-[#0c1a1f]" },
+      { label: "Agent drafts", value: "7", tone: "text-primary" },
+      { label: "Follow-ups due", value: "4", tone: "text-amber-700" },
+      { label: "Quotes sent", value: "9", tone: "text-[#0c1a1f]" },
+    ],
+    attention: [
+      "Meridian Corp — missing drawings",
+      "Helix Ltd — demo follow-up overdue",
+      "PO #10479 — payment pending",
+    ],
+    queueTitle: "RFQ queue",
+    queueRows: [
+      { name: "Meridian Corp", detail: "Custom assembly", status: "Missing files", tone: "text-amber-700" },
+      { name: "Helix Ltd", detail: "Catalog order", status: "Ready for review", tone: "text-primary" },
+      { name: "Nova Co", detail: "Partner program", status: "Needs follow-up", tone: "text-[#5a6b72]" },
+      { name: "Orbit Inc", detail: "Components", status: "Complete", tone: "text-primary" },
+    ],
+    customers: ["Meridian Corp", "Helix Ltd", "Nova Co", "Orbit Inc", "Cedar Works", "Northline"],
+    orders: [
+      { id: "PO-10481", name: "Assembly kit", status: "Paid", total: "€2,400" },
+      { id: "PO-10480", name: "Components", status: "Shipped", total: "€1,290" },
+      { id: "PO-10479", name: "Sample pack", status: "Pending", total: "€312" },
+    ],
+    agentDraft:
+      "Hi Jordan — we’re still missing the CAD drawing to finish RFQ-1842. A PDF reply works and we’ll lock pricing + lead time.",
+  },
+  commerce: {
+    label: "Commerce ops",
+    brand: "Harbor Ops",
+    search: "Search customers, orders, SKUs…",
+    stats: [
+      { label: "Open tickets", value: "8", tone: "text-[#0c1a1f]" },
+      { label: "Agent drafts", value: "11", tone: "text-primary" },
+      { label: "Carts aging", value: "23", tone: "text-amber-700" },
+      { label: "Orders today", value: "64", tone: "text-[#0c1a1f]" },
+    ],
+    attention: [
+      "#4821 — incomplete shipping address",
+      "Abandoned cart — Essentials kit",
+      "Return R-882 — refund pending",
+    ],
+    queueTitle: "Exception queue",
+    queueRows: [
+      { name: "Order #4821", detail: "Essentials kit", status: "Address gap", tone: "text-amber-700" },
+      { name: "Cart C-991", detail: "Limited drop", status: "Recoverable", tone: "text-primary" },
+      { name: "Return R-882", detail: "Refill pack", status: "Needs review", tone: "text-[#5a6b72]" },
+      { name: "Order #4799", detail: "Bundle", status: "Fulfilled", tone: "text-primary" },
+    ],
+    customers: ["Sam Ortiz", "Riley Chen", "Jamie Cole", "Kim Park", "Noah Blake", "Alex Rivera"],
+    orders: [
+      { id: "#4821", name: "Essentials kit", status: "Packed", total: "€84" },
+      { id: "#4820", name: "Refill pack", status: "Shipped", total: "€39" },
+      { id: "#4819", name: "Limited tee", status: "Paid", total: "€48" },
+    ],
+    agentDraft:
+      "Hi Sam — your order #4821 is almost ready. We still need your apartment/suite to ship. Reply anytime and we’ll update tracking.",
+  },
+  services: {
+    label: "Services ops",
+    brand: "Northline Ops",
+    search: "Search clients, enquiries, projects…",
+    stats: [
+      { label: "Open enquiries", value: "10", tone: "text-[#0c1a1f]" },
+      { label: "Agent drafts", value: "5", tone: "text-primary" },
+      { label: "Proposals out", value: "6", tone: "text-amber-700" },
+      { label: "Kickoffs", value: "3", tone: "text-[#0c1a1f]" },
+    ],
+    attention: [
+      "Priya Shah — proposal follow-up due",
+      "Growth audit — missing company size",
+      "Launch sprint — kickoff packet incomplete",
+    ],
+    queueTitle: "Enquiry queue",
+    queueRows: [
+      { name: "Priya Shah", detail: "Launch sprint", status: "Proposal sent", tone: "text-amber-700" },
+      { name: "Chris Adeyemi", detail: "Retainer", status: "Ready for call", tone: "text-primary" },
+      { name: "Elena Voss", detail: "Growth audit", status: "Needs details", tone: "text-[#5a6b72]" },
+      { name: "Marcus Trent", detail: "Brand system", status: "Won", tone: "text-primary" },
+    ],
+    customers: ["Priya Shah", "Chris Adeyemi", "Elena Voss", "Marcus Trent", "Jamie Lee", "Noah Okonkwo"],
+    orders: [
+      { id: "INV-221", name: "Launch sprint", status: "Paid", total: "€18,500" },
+      { id: "INV-220", name: "Retainer · Apr", status: "Due", total: "€8,000" },
+      { id: "INV-219", name: "Growth audit", status: "Paid", total: "€4,200" },
+    ],
+    agentDraft:
+      "Hi Priya — checking whether you had questions on the launch sprint scope. Happy to walk timeline on a short call this week.",
+  },
+};
 
 export function ClinicOsDemo() {
   const reduce = useReducedMotion();
+  const [industry, setIndustry] = useState<IndustryId>("b2b");
   const [view, setView] = useState<View>("overview");
   const [assisted, setAssisted] = useState(false);
+  const data = industries[industry];
 
   return (
     <div className="flex h-[calc(100dvh-3.5rem)] flex-col bg-[#071216]">
+      <div className="shrink-0 border-b border-white/10 bg-[#0c1a1f] px-3 py-2.5 sm:px-4">
+        <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.16em] text-white/45">
+          Industry
+        </p>
+        <div className="flex gap-2 overflow-x-auto pb-0.5">
+          {(Object.keys(industries) as IndustryId[]).map((id) => (
+            <button
+              key={id}
+              type="button"
+              onClick={() => {
+                setIndustry(id);
+                setView("overview");
+                setAssisted(false);
+              }}
+              className={cn(
+                "shrink-0 rounded-full px-3 py-1.5 text-xs font-medium",
+                industry === id
+                  ? "bg-primary text-white"
+                  : "bg-white/10 text-white/70"
+              )}
+            >
+              {industries[id].label}
+            </button>
+          ))}
+        </div>
+      </div>
+
       <div className="mx-auto flex h-full w-full max-w-[1400px] overflow-hidden border-x border-white/5 bg-[#f1f5f4]">
         <aside className="hidden w-56 shrink-0 flex-col border-r border-[#d5e0dd] bg-[#0c1a1f] text-white md:flex">
           <div className="border-b border-white/10 px-4 py-4">
             <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-white/40">
-              Clinic OS
+              Business OS
             </p>
-            <p className="mt-1 font-display text-lg font-semibold">
-              Northside Ops
-            </p>
+            <p className="mt-1 font-display text-lg font-semibold">{data.brand}</p>
           </div>
           <nav className="flex flex-1 flex-col gap-1 p-3">
             {nav.map((item) => (
@@ -68,7 +206,7 @@ export function ClinicOsDemo() {
           <header className="flex items-center justify-between gap-3 border-b border-[#d5e0dd] bg-white px-4 py-3 sm:px-6">
             <div className="flex min-w-0 items-center gap-2 rounded-xl border border-[#d5e0dd] bg-[#f1f5f4] px-3 py-2 text-sm text-[#5a6b72]">
               <Search className="h-4 w-4 shrink-0" />
-              <span className="truncate">Search patients, intakes, orders…</span>
+              <span className="truncate">{data.search}</span>
             </div>
             <div className="hidden text-xs font-medium text-[#5a6b72] sm:block">
               Live demo · staff view
@@ -96,20 +234,26 @@ export function ClinicOsDemo() {
           <div className="flex-1 overflow-y-auto p-4 sm:p-6">
             <AnimatePresence mode="wait">
               <motion.div
-                key={view + String(assisted)}
+                key={`${industry}-${view}-${String(assisted)}`}
                 initial={reduce ? false : { opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={reduce ? undefined : { opacity: 0 }}
                 transition={{ duration: 0.22 }}
               >
-                {view === "overview" ? <Overview onIntake={() => setView("intake")} /> : null}
-                {view === "intake" ? (
-                  <Intake onAgents={() => setView("agents")} />
+                {view === "overview" ? (
+                  <Overview data={data} onQueue={() => setView("queue")} />
                 ) : null}
-                {view === "patients" ? <Patients /> : null}
-                {view === "orders" ? <Orders /> : null}
+                {view === "queue" ? (
+                  <Queue data={data} onAgents={() => setView("agents")} />
+                ) : null}
+                {view === "customers" ? <Customers data={data} /> : null}
+                {view === "orders" ? <Orders data={data} /> : null}
                 {view === "agents" ? (
-                  <Agents assisted={assisted} onAssist={() => setAssisted(true)} />
+                  <Agents
+                    draft={data.agentDraft}
+                    assisted={assisted}
+                    onAssist={() => setAssisted(true)}
+                  />
                 ) : null}
               </motion.div>
             </AnimatePresence>
@@ -120,22 +264,23 @@ export function ClinicOsDemo() {
   );
 }
 
-function Overview({ onIntake }: { onIntake: () => void }) {
+function Overview({
+  data,
+  onQueue,
+}: {
+  data: (typeof industries)[IndustryId];
+  onQueue: () => void;
+}) {
   return (
     <div>
       <h2 className="font-display text-3xl font-semibold text-[#0c1a1f]">
-        Today at Northside
+        Today at {data.brand.replace(" Ops", "")}
       </h2>
       <p className="mt-2 text-sm text-[#5a6b72]">
-        One operating layer for intake, patients, commerce, and agents.
+        One operating layer for pipeline, customers, commerce, and agents.
       </p>
       <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-        {[
-          { label: "Open intakes", value: "12", tone: "text-[#0c1a1f]" },
-          { label: "Agent drafts", value: "7", tone: "text-primary" },
-          { label: "Follow-ups due", value: "4", tone: "text-amber-700" },
-          { label: "Orders today", value: "9", tone: "text-[#0c1a1f]" },
-        ].map((stat) => (
+        {data.stats.map((stat) => (
           <div
             key={stat.label}
             className="rounded-2xl border border-[#d5e0dd] bg-white p-5"
@@ -166,20 +311,16 @@ function Overview({ onIntake }: { onIntake: () => void }) {
         <div className="rounded-2xl border border-[#d5e0dd] bg-white p-5">
           <p className="text-sm font-semibold text-[#0c1a1f]">Needs attention</p>
           <ul className="mt-4 space-y-3">
-            {[
-              "A. Mercer — missing referral",
-              "L. Chen — follow-up overdue",
-              "Order #10479 — payment pending",
-            ].map((item) => (
+            {data.attention.map((item) => (
               <li
                 key={item}
-                className="flex items-center justify-between text-sm text-[#12252c]"
+                className="flex items-center justify-between gap-3 text-sm text-[#12252c]"
               >
-                {item}
+                <span className="min-w-0 truncate">{item}</span>
                 <button
                   type="button"
-                  onClick={onIntake}
-                  className="text-xs font-semibold text-primary"
+                  onClick={onQueue}
+                  className="shrink-0 text-xs font-semibold text-primary"
                 >
                   Open
                 </button>
@@ -192,35 +333,20 @@ function Overview({ onIntake }: { onIntake: () => void }) {
   );
 }
 
-function Intake({ onAgents }: { onAgents: () => void }) {
+function Queue({
+  data,
+  onAgents,
+}: {
+  data: (typeof industries)[IndustryId];
+  onAgents: () => void;
+}) {
   return (
     <div>
       <h2 className="font-display text-3xl font-semibold text-[#0c1a1f]">
-        Intake queue
+        {data.queueTitle}
       </h2>
       <div className="mt-5 overflow-hidden rounded-2xl border border-[#d5e0dd] bg-white">
-        {[
-          {
-            name: "Alex Mercer",
-            status: "Missing documents",
-            tone: "text-amber-700",
-          },
-          {
-            name: "Jordan Okonkwo",
-            status: "Ready for review",
-            tone: "text-primary",
-          },
-          {
-            name: "Lina Chen",
-            status: "Needs follow-up",
-            tone: "text-[#5a6b72]",
-          },
-          {
-            name: "Noah Patel",
-            status: "Complete",
-            tone: "text-primary",
-          },
-        ].map((row, index) => (
+        {data.queueRows.map((row, index) => (
           <div
             key={row.name}
             className={cn(
@@ -230,7 +356,7 @@ function Intake({ onAgents }: { onAgents: () => void }) {
           >
             <div>
               <p className="text-sm font-semibold text-[#0c1a1f]">{row.name}</p>
-              <p className="text-xs text-[#5a6b72]">Longevity assessment</p>
+              <p className="text-xs text-[#5a6b72]">{row.detail}</p>
             </div>
             <span className={cn("text-xs font-semibold", row.tone)}>
               {row.status}
@@ -239,55 +365,46 @@ function Intake({ onAgents }: { onAgents: () => void }) {
         ))}
       </div>
       <Button className="mt-5 touch-manipulation" onClick={onAgents}>
-        Ask agent to chase missing docs
+        Ask agent to draft follow-up
       </Button>
     </div>
   );
 }
 
-function Patients() {
+function Customers({ data }: { data: (typeof industries)[IndustryId] }) {
   return (
     <div>
       <h2 className="font-display text-3xl font-semibold text-[#0c1a1f]">
-        Patients
+        Customers
       </h2>
       <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {["Alex Mercer", "Jordan Okonkwo", "Lina Chen", "Noah Patel", "Sofia Reyes", "Marcus Trent"].map(
-          (name) => (
-            <div
-              key={name}
-              className="rounded-2xl border border-[#d5e0dd] bg-white p-4"
-            >
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0c1a1f] text-sm font-semibold text-white">
-                {name
-                  .split(" ")
-                  .map((p) => p[0])
-                  .join("")}
-              </div>
-              <p className="mt-3 text-sm font-semibold text-[#0c1a1f]">{name}</p>
-              <p className="mt-1 text-xs text-[#5a6b72]">
-                Active · packet history available
-              </p>
+        {data.customers.map((name) => (
+          <div
+            key={name}
+            className="rounded-2xl border border-[#d5e0dd] bg-white p-4"
+          >
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0c1a1f] text-sm font-semibold text-white">
+              {name
+                .split(" ")
+                .map((p) => p[0])
+                .join("")
+                .slice(0, 2)}
             </div>
-          )
-        )}
+            <p className="mt-3 text-sm font-semibold text-[#0c1a1f]">{name}</p>
+            <p className="mt-1 text-xs text-[#5a6b72]">Active · history available</p>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
-function Orders() {
+function Orders({ data }: { data: (typeof industries)[IndustryId] }) {
   return (
     <div>
-      <h2 className="font-display text-3xl font-semibold text-[#0c1a1f]">
-        Orders
-      </h2>
+      <h2 className="font-display text-3xl font-semibold text-[#0c1a1f]">Orders</h2>
       <div className="mt-5 overflow-hidden rounded-2xl border border-[#d5e0dd] bg-white">
-        {[
-          { id: "ORD-10481", name: "Recovery kit", status: "Paid", total: "€240" },
-          { id: "ORD-10480", name: "Supplement pack", status: "Shipped", total: "€129" },
-          { id: "ORD-10479", name: "Assessment fee", status: "Pending", total: "€312" },
-        ].map((order, index) => (
+        {data.orders.map((order, index) => (
           <div
             key={order.id}
             className={cn(
@@ -307,9 +424,11 @@ function Orders() {
 }
 
 function Agents({
+  draft,
   assisted,
   onAssist,
 }: {
+  draft: string;
   assisted: boolean;
   onAssist: () => void;
 }) {
@@ -323,12 +442,10 @@ function Agents({
           <MessageSquare className="mt-0.5 h-4 w-4 text-primary" />
           <div>
             <p className="text-sm font-semibold text-[#0c1a1f]">
-              Draft follow-up · Alex Mercer
+              Draft follow-up ready for approval
             </p>
             <p className="mt-3 rounded-2xl bg-[#f1f5f4] p-4 text-sm leading-relaxed text-[#12252c]">
-              “Hi Alex — we’re still missing your referral letter to complete the
-              longevity packet. Reply with a photo or PDF and we’ll confirm your
-              consult slot.”
+              “{draft}”
             </p>
           </div>
         </div>

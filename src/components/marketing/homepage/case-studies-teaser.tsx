@@ -17,10 +17,10 @@ export function CaseStudiesTeaserSection() {
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.18em] text-primary">
             Case studies
           </p>
-          <SectionHeading>Clinics that shipped with us</SectionHeading>
+          <SectionHeading>Teams that shipped with us</SectionHeading>
           <SectionLead>
-            Presence, Product, and System packages — with the metrics that
-            matter after launch.
+            B2B, commerce, and multi-brand builds — with the metrics that matter
+            after launch.
           </SectionLead>
         </FadeIn>
         <FadeIn delay={0.05}>

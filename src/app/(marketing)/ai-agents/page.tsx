@@ -107,8 +107,8 @@ export default function AiAgentsPage() {
           <SectionEyebrow>Guardrails</SectionEyebrow>
           <SectionHeading>Designed for trust, not hype.</SectionHeading>
           <SectionLead>
-            Agents amplify your team. Final accountability for care, compliance,
-            and patient communication remains with your practice.
+            Agents amplify your team. Final accountability for offers, compliance,
+            and customer communication remains with your business.
           </SectionLead>
         </FadeIn>
         <ul className="mt-6 grid gap-3 sm:grid-cols-2">
