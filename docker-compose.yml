@@ -1,0 +1,58 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: synapto-db
+    environment:
+      POSTGRES_USER: synapto
+      POSTGRES_PASSWORD: synapto
+      POSTGRES_DB: synapto
+    ports:
+      - "5437:5432"
+    volumes:
+      - synapto_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U synapto -d synapto"]
+      interval: 3s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+  migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: migrate
+    container_name: synapto-migrate
+    environment:
+      DATABASE_URL: postgresql://synapto:synapto@db:5432/synapto
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: "no"
+
+  synapto-tech:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+    container_name: synapto-tech
+    ports:
+      - "3080:3000"
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      HOSTNAME: "0.0.0.0"
+      NEXT_PUBLIC_APP_URL: http://localhost:3080
+      NEXT_PUBLIC_APP_NAME: Synapto Tech
+      DATABASE_URL: postgresql://synapto:synapto@db:5432/synapto
+      BETTER_AUTH_SECRET: local-docker-dev-secret-change-me-32chars
+      BETTER_AUTH_URL: http://localhost:3080
+    depends_on:
+      db:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+volumes:
+  synapto_pg_data:

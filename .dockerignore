@@ -1,0 +1,17 @@
+node_modules
+.next
+.git
+.gitignore
+*.md
+.env*
+!.env.example
+Dockerfile
+docker-compose*.yml
+.drizzle
+drizzle
+coverage
+.vscode
+.cursor
+agent-transcripts
+tsconfig.tsbuildinfo
+npm-debug.log*

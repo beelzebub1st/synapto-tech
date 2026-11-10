@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f1f5f4;
+  --foreground: #0c1a1f;
+  --card: #ffffff;
+  --card-foreground: #0c1a1f;
+  --popover: #ffffff;
+  --popover-foreground: #0c1a1f;
+  --primary: #0f766e;
+  --primary-foreground: #ffffff;
+  --secondary: #e4ecea;
+  --secondary-foreground: #12252c;
+  --muted: #e4ecea;
+  --muted-foreground: #5a6b72;
+  --accent: #9bb5ad;
+  --accent-foreground: #0c1a1f;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #d5e0dd;
+  --input: #d5e0dd;
+  --ring: #0f766e;
+  --midnight: #0c1a1f;
+  --charcoal: #15262d;
+  --sage: #9bb5ad;
+  --off-white: #f1f5f4;
+  --ink: #071216;
+  --radius: 0.875rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-midnight: var(--midnight);
+  --color-charcoal: var(--charcoal);
+  --color-sage: var(--sage);
+  --color-off-white: var(--off-white);
+  --color-ink: var(--ink);
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-fraunces);
+  --font-mono: var(--font-geist-mono);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 10px);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-optical-sizing: auto;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.touch-manipulation {
+  touch-action: manipulation;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--primary) 28%, transparent);
+  color: var(--foreground);
+}
+
+.gradient-mesh {
+  background:
+    radial-gradient(ellipse 85% 55% at 12% -10%, rgba(15, 118, 110, 0.14), transparent 55%),
+    radial-gradient(ellipse 65% 45% at 92% 8%, rgba(155, 181, 173, 0.28), transparent 50%),
+    radial-gradient(ellipse 50% 35% at 55% 100%, rgba(15, 118, 110, 0.08), transparent 60%),
+    linear-gradient(180deg, #f7faf9 0%, var(--off-white) 100%);
+}
+
+.dark-mesh {
+  background:
+    radial-gradient(ellipse 80% 55% at 15% -8%, rgba(15, 118, 110, 0.35), transparent 55%),
+    radial-gradient(ellipse 55% 45% at 90% 20%, rgba(155, 181, 173, 0.12), transparent 50%),
+    radial-gradient(ellipse 40% 30% at 50% 100%, rgba(15, 118, 110, 0.18), transparent 55%),
+    #071216;
+}
+
+.hero-plane {
+  background:
+    radial-gradient(ellipse 70% 60% at 78% 42%, rgba(15, 118, 110, 0.45), transparent 58%),
+    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(155, 181, 173, 0.18), transparent 55%),
+    linear-gradient(135deg, #071216 0%, #0c1a1f 42%, #123038 100%);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.container-page {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 480px) {
+  .container-page {
+    padding-inline: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-page {
+    padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-page {
+    max-width: 78rem;
+  }
+}
