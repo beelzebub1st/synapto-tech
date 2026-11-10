@@ -1,0 +1,11 @@
+---
+description: This repository is owned by the beelzebub1st GitHub account
+alwaysApply: true
+---
+
+# GitHub ownership
+
+- This project belongs to the GitHub account **beelzebub1st** (`alenbeslijaaa@gmail.com`).
+- Remote origin must stay under `https://github.com/beelzebub1st/...`.
+- Do not push this codebase to `xsidious` or any other GitHub account unless the user explicitly requests a transfer.
+- Prefer creating PRs, issues, and deployments against the `beelzebub1st` repository only.
