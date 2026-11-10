@@ -15,7 +15,7 @@ export function TestimonialsSection() {
             Client signal
           </p>
           <SectionHeading className="mx-auto">
-            What clinics say when the stack finally works.
+            What clients say when the stack finally works.
           </SectionHeading>
           <SectionLead className="mx-auto">
             Trust is earned in operations—not slogans. These are the outcomes

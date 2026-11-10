@@ -22,13 +22,13 @@ export function PackagesSection() {
             Clear paths. Real outcomes. No mystery scope.
           </SectionHeading>
           <SectionLead className="mx-auto">
-            Start where you are. Expand when the clinic is ready. Every path is
-            designed so the next layer plugs in cleanly.
+            Start where you are. Expand when the business is ready. Every path is
+            designed so the next layer—including AI—plugs in cleanly.
           </SectionLead>
         </FadeIn>
       </div>
 
-      <div className="mt-12 grid gap-5 lg:grid-cols-3">
+      <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {packages.map((item, index) => (
           <FadeIn key={item.name} delay={0.05 * index}>
             <article

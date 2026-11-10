@@ -7,6 +7,93 @@ export type IndustryPageContent = {
 };
 
 export const industryPageContent: Record<string, IndustryPageContent> = {
+  "small-businesses": {
+    headline: "Digital systems that make a lean team look bigger",
+    subhead:
+      "Premium websites, booking flows, and AI follow-ups so small businesses convert more without hiring a full digital department.",
+    challenges: [
+      "DIY sites that look cheap and stall enquiries",
+      "Too many tools that never talk to each other",
+      "Follow-ups that live in someone’s head or inbox",
+    ],
+    outcomes: [
+      "A brand-first site that turns visits into leads",
+      "Simple booking or enquiry flows your team can run",
+      "AI reminders and drafts so nothing slips through",
+    ],
+    highlights: [
+      {
+        title: "Launch fast",
+        description: "Focused website scope with a clear first win in weeks.",
+      },
+      {
+        title: "Own your stack",
+        description: "One partner for site, product surfaces, and automations.",
+      },
+      {
+        title: "Grow into AI",
+        description: "Start with Presence; add agents when volume demands it.",
+      },
+    ],
+  },
+  "professional-services": {
+    headline: "Trust-first digital for firms that sell expertise",
+    subhead:
+      "Websites, intake, and AI-assisted follow-up for agencies, advisors, and professional practices that need credibility and clean operations.",
+    challenges: [
+      "Generic sites that don’t communicate expertise",
+      "Intake and proposals scattered across email and docs",
+      "No consistent follow-up after first contact",
+    ],
+    outcomes: [
+      "Authority-led website architecture",
+      "Structured enquiry and intake paths",
+      "Draft replies and chase sequences with approval gates",
+    ],
+    highlights: [
+      {
+        title: "Proof that converts",
+        description: "Case-led storytelling and clear next steps on every path.",
+      },
+      {
+        title: "Client portals",
+        description: "Optional PWAs for status, documents, and messages.",
+      },
+      {
+        title: "Ops clarity",
+        description: "Dashboards so partners see pipeline health, not noise.",
+      },
+    ],
+  },
+  "growing-companies": {
+    headline: "Product surfaces and automations that scale with the team",
+    subhead:
+      "From marketing site to customer apps, business OS, and AI workflow agents—built for companies outgrowing duct-taped tools.",
+    challenges: [
+      "Marketing site disconnected from product and ops",
+      "Manual workflows that break as headcount grows",
+      "Multiple vendors with no shared accountability",
+    ],
+    outcomes: [
+      "Unified website + app/PWA layer",
+      "AI agents on lead, support, and ops queues",
+      "One operating partner through expansion",
+    ],
+    highlights: [
+      {
+        title: "Phased delivery",
+        description: "Ship Presence, then Product, then System without throwaway work.",
+      },
+      {
+        title: "Agent workforce",
+        description: "Automate repetitive handoffs while humans approve customer messages.",
+      },
+      {
+        title: "Enterprise-ready",
+        description: "Roles, audit trails, and integrations as you scale locations or teams.",
+      },
+    ],
+  },
   "medical-clinics": {
     headline: "Commerce built for modern medical clinics",
     subhead:

@@ -16,7 +16,7 @@ const problems = [
   },
   {
     title: "Templates that do not convert",
-    text: "Generic builders were never designed for clinical trust, regulated offers, or patient journeys.",
+    text: "Generic builders were never designed for trust, complex offers, or real buyer journeys.",
   },
   {
     title: "Disconnected systems",

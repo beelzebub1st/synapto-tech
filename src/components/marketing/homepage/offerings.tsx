@@ -41,7 +41,7 @@ export function OfferingsSection() {
           </SectionHeading>
           <SectionLead className="mx-auto">
             Presence, products, AI, commerce, and ongoing partnership—scoped as
-            one accountable system for clinics and healthcare brands.
+            one accountable system for small businesses through enterprise teams.
           </SectionLead>
         </FadeIn>
       </div>
@@ -88,8 +88,8 @@ export function OfferingsSection() {
       <FadeIn delay={0.1}>
         <div className="mt-10 flex flex-col items-start justify-between gap-5 border border-border/80 bg-white px-6 py-7 sm:flex-row sm:items-center sm:px-8">
           <p className="max-w-xl text-base font-medium text-midnight sm:text-lg">
-            Tell us how your clinic operates today. We will map the website,
-            app, and system stack around it.
+            Tell us how your business operates today. We will map the website,
+            app, AI agents, and system stack around it.
           </p>
           <Button asChild size="lg" className="touch-manipulation shrink-0">
             <Link href="/book-a-demo">

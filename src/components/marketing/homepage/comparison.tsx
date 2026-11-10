@@ -13,7 +13,7 @@ type Cell = "yes" | "partial" | "no";
 
 const rows: { label: string; agency: Cell; diy: Cell; synapto: Cell }[] = [
   {
-    label: "High-converting clinic website",
+    label: "High-converting business website",
     agency: "partial",
     diy: "partial",
     synapto: "yes",
@@ -25,13 +25,13 @@ const rows: { label: string; agency: Cell; diy: Cell; synapto: Cell }[] = [
     synapto: "yes",
   },
   {
-    label: "AI agents for intake & follow-ups",
+    label: "AI agents for leads & follow-ups",
     agency: "no",
     diy: "no",
     synapto: "yes",
   },
   {
-    label: "Connected clinic operating system",
+    label: "Connected business operating system",
     agency: "no",
     diy: "partial",
     synapto: "yes",
@@ -43,7 +43,7 @@ const rows: { label: string; agency: Cell; diy: Cell; synapto: Cell }[] = [
     synapto: "yes",
   },
   {
-    label: "Built for clinical trust & conversion",
+    label: "Built for trust, conversion & automation",
     agency: "partial",
     diy: "no",
     synapto: "yes",
@@ -86,14 +86,14 @@ export function ComparisonSection() {
       <div className="mx-auto max-w-3xl text-center">
         <FadeIn>
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.18em] text-primary">
-            Why clinics switch
+            Why teams switch
           </p>
           <SectionHeading className="mx-auto">
             Agencies design. Builders template. Synapto converts and operates.
           </SectionHeading>
           <SectionLead className="mx-auto">
             If you need a brochure site, hire a freelancer. If you need a system
-            that wins patients and runs the clinic, you need a different partner.
+            that wins customers and runs the business, you need a different partner.
           </SectionLead>
         </FadeIn>
       </div>

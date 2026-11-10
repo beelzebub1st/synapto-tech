@@ -23,12 +23,12 @@ export function FinalCtaSection() {
               Book the call
             </p>
             <h2 className="mt-4 font-display text-balance text-3xl font-semibold tracking-tight text-white md:text-[3.15rem] md:leading-[1.08]">
-              Let’s build the digital system your clinic has been assembling by hand.
+              Let’s build the digital system your business has been assembling by hand.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/70">
-              Tell us how you acquire patients today. We will map the website,
-              app/PWA, AI, and operations stack that converts—and the fastest
-              first win.
+              Tell us how you win customers today. We will map the website,
+              app/PWA, AI agents, and operations stack that converts—and the
+              fastest first win.
             </p>
             <div className="mt-8 flex w-full flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
               <Button

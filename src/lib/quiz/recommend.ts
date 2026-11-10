@@ -63,7 +63,7 @@ function buildInsight(answers: QuizAnswers, recommended: PackageKey) {
   if (answers.priority === "website") {
     bits.push("You need conversion on the public site first");
   } else if (answers.priority === "app") {
-    bits.push("Patients/staff need a product surface beyond a brochure site");
+    bits.push("Customers/staff need a product surface beyond a brochure site");
   } else if (answers.priority === "system") {
     bits.push("You’re ready for a connected operating layer");
   } else {
@@ -90,7 +90,7 @@ function buildInsight(answers: QuizAnswers, recommended: PackageKey) {
     recommended === "presence"
       ? "Presence locks brand + website conversion before you overbuild."
       : recommended === "product"
-        ? "Product pairs the website with an app/PWA and operating tools."
+        ? "Product pairs the website with an app/PWA, AI agents, and operating tools."
         : "System is the full partner path — commerce, agents, and ops included.";
 
   return `${bits.join(", ")}. ${packageLine}`;
@@ -110,13 +110,13 @@ export const PACKAGE_COPY: Record<
 > = {
   presence: {
     name: "Presence",
-    tagline: "A high-converting clinic website and brand foundation.",
+    tagline: "A high-converting website and brand foundation.",
     depositCents: 150000,
     depositLabel: "€1,500",
     vibe: "Trust-first · Convert-ready",
-    firstWin: "A clinic site that turns visitors into booked patients.",
+    firstWin: "A website that turns visitors into enquiries and sales.",
     bullets: [
-      "Conversion-led clinic website",
+      "Conversion-led business website",
       "Brand-aligned design system",
       "Editable content workspace",
       "Launch training",
@@ -124,21 +124,21 @@ export const PACKAGE_COPY: Record<
   },
   product: {
     name: "Product",
-    tagline: "Website plus app/PWA and clinic operating tools.",
+    tagline: "Website plus app/PWA, AI agents, and operating tools.",
     depositCents: 350000,
     depositLabel: "€3,500",
     vibe: "Website + product layer",
-    firstWin: "Patients use a real product — intake, status, follow-up.",
+    firstWin: "Customers use a real product — intake, status, follow-up.",
     bullets: [
       "Everything in Presence",
-      "Patient or staff PWA/app",
+      "Customer or staff PWA/app",
       "Intake + booking workflows",
       "AI follow-up agents",
     ],
   },
   system: {
     name: "System",
-    tagline: "Full digital operating partner for growth clinics.",
+    tagline: "Full digital operating partner for growth.",
     depositCents: 750000,
     depositLabel: "€7,500",
     vibe: "Full operating partner",
@@ -162,13 +162,13 @@ export const QUIZ_STEPS = [
       {
         value: "website",
         label: "A website that converts",
-        detail: "Trust-first pages that turn visits into booked patients",
+        detail: "Trust-first pages that turn visits into enquiries and sales",
         icon: "globe",
       },
       {
         value: "app",
         label: "An app or PWA",
-        detail: "Installable patient/staff product beyond a brochure site",
+        detail: "Installable customer/staff product beyond a brochure site",
         icon: "smartphone",
       },
       {
@@ -188,7 +188,7 @@ export const QUIZ_STEPS = [
   {
     id: "stage",
     hook: "Your baseline",
-    question: "Where is your clinic digitally today?",
+    question: "Where is your business digitally today?",
     support: "This tells us whether to rebuild, upgrade, or unify.",
     options: [
       {
@@ -225,7 +225,7 @@ export const QUIZ_STEPS = [
       },
       {
         value: "small",
-        label: "Front desk + coordinators",
+        label: "Ops + sales team",
         detail: "Daily intake, booking, and follow-up by a small team",
         icon: "users",
       },
@@ -284,7 +284,7 @@ export const QUIZ_STEPS = [
       {
         value: "no",
         label: "No commerce needed",
-        detail: "Focus on trust, booking, and clinical operations",
+        detail: "Focus on trust, booking, and operations",
         icon: "ban",
       },
     ],

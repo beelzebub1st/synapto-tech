@@ -154,7 +154,7 @@ export function DepositForm({ defaultPackage }: { defaultPackage?: PackageKey })
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="dep-clinic">Clinic / brand</Label>
+            <Label htmlFor="dep-clinic">Business / brand</Label>
             <Input
               id="dep-clinic"
               required

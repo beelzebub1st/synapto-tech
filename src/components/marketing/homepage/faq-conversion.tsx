@@ -24,7 +24,7 @@ export function FaqConversionSection() {
           <SectionHeading>Everything buyers ask before they book.</SectionHeading>
           <SectionLead>
             Clear answers reduce friction. If you need a custom answer for your
-            clinic model, bring it to the strategy call.
+            business model, bring it to the strategy call.
           </SectionLead>
         </FadeIn>
 

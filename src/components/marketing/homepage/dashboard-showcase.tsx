@@ -24,7 +24,7 @@ export function DashboardShowcase() {
       <div className="grid items-center gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10">
         <FadeIn>
           <SectionEyebrow>Platform</SectionEyebrow>
-          <SectionHeading>One operating system for the clinic.</SectionHeading>
+          <SectionHeading>One operating system for the business.</SectionHeading>
           <SectionLead>
             Manage website content, catalog, orders, agents, and performance from
             a single workspace—so the product and the business stay connected.

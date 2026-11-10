@@ -1,20 +1,20 @@
 export const proofStrip = [
-  "Medical clinics",
-  "Wellness providers",
-  "Longevity practices",
-  "Aesthetic clinics",
-  "Telehealth brands",
-  "Healthcare product companies",
+  "Small businesses",
+  "Professional services",
+  "Growing companies",
+  "E-commerce brands",
+  "Clinics & wellness",
+  "Multi-location teams",
 ] as const;
 
 export const packages = [
   {
     name: "Presence",
-    ideal: "Clinics that need a premium website that converts",
+    ideal: "Businesses that need a premium website that converts",
     priceLabel: "From discovery",
     highlight: false,
     includes: [
-      "Brand-aligned clinic website",
+      "Brand-aligned website",
       "Conversion page architecture",
       "SEO & performance foundations",
       "Editable content workspace",
@@ -25,14 +25,14 @@ export const packages = [
   },
   {
     name: "Product",
-    ideal: "Teams ready for apps, PWAs, and patient portals",
+    ideal: "Teams ready for apps, PWAs, and customer portals",
     priceLabel: "Scoped to your stack",
     highlight: true,
     includes: [
       "Everything in Presence",
-      "Patient or staff app / PWA",
-      "Intake & booking workflows",
-      "Clinic OS dashboard",
+      "Customer or staff app / PWA",
+      "Intake, booking & lead workflows",
+      "Business OS dashboard",
       "AI agents for follow-ups",
     ],
     cta: "Build my product stack",
@@ -46,7 +46,7 @@ export const packages = [
     includes: [
       "Everything in Product",
       "Commerce & operations layer",
-      "Automations + call concierge",
+      "Automations + AI concierge",
       "Integrations & payments readiness",
       "Ongoing optimization partnership",
     ],
@@ -60,13 +60,13 @@ export const resultsStories = [
     metric: "3.1×",
     label: "more qualified form starts",
     context:
-      "After replacing a template site with a trust-first clinic funnel and clearer service paths.",
+      "After replacing a template site with a trust-first funnel and clearer offer paths.",
   },
   {
     metric: "18 hrs",
     label: "admin saved / week",
     context:
-      "Intake completeness agents and auto follow-ups cut rework between front desk and coordinators.",
+      "AI completeness checks and auto follow-ups cut rework between sales, ops, and support.",
   },
   {
     metric: "1 stack",
@@ -79,36 +79,40 @@ export const resultsStories = [
 export const testimonials = [
   {
     quote:
-      "We finally have a digital presence that feels as clinical as our care—and a system the team can actually run.",
-    name: "Dr. Mira Elson",
-    role: "Medical Director, longevity practice",
+      "We finally have a digital presence that feels as sharp as our brand—and a system the team can actually run.",
+    name: "Mira Elson",
+    role: "Founder, multi-location services brand",
   },
   {
     quote:
       "The difference was ownership. Synapto didn’t hand us a site and disappear. They built the website, the app layer, and the workflows.",
     name: "Jordan Hale",
-    role: "COO, multi-location wellness clinic",
+    role: "COO, growing company",
   },
   {
     quote:
-      "Patients understand what we offer faster. Staff spend less time chasing incomplete intakes. That is real conversion.",
+      "Customers understand what we offer faster. Staff spend less time chasing incomplete forms. That is real conversion.",
     name: "Sofia Nguyen",
-    role: "Practice Manager, aesthetic clinic",
+    role: "Operations lead, professional services firm",
   },
 ] as const;
 
 export const conversionFaq = [
   {
     q: "Do we have to buy everything at once?",
-    a: "No. Most clinics start with Presence (website + conversion architecture), then layer apps, PWAs, AI agents, and operations when ready. We design the path so nothing is thrown away.",
+    a: "No. Most clients start with Presence (website + conversion architecture), then layer apps, PWAs, AI agents, and operations when ready. We design the path so nothing is thrown away.",
+  },
+  {
+    q: "Who do you work with?",
+    a: "Small businesses, professional services, e-commerce brands, growing companies, clinics, and multi-location teams. If you need a website, product surface, or AI-powered workflows—we’re built for that.",
   },
   {
     q: "How fast can we launch?",
-    a: "A focused clinic website can move from discovery to launch in weeks when scope is clear. Apps, PWAs, and full systems are phased with milestones you can see before we build.",
+    a: "A focused website can move from discovery to launch in weeks when scope is clear. Apps, PWAs, and full systems are phased with milestones you can see before we build.",
   },
   {
-    q: "Will this work for regulated healthcare offers?",
-    a: "Yes. We design for clinical trust, clear claims boundaries, and operational control. We do not replace your compliance counsel—we build experiences that support responsible marketing and intake.",
+    q: "What AI services do you actually offer?",
+    a: "Lead qualification, intake completeness, draft replies, follow-up sequences, call assistance, and custom workflow agents—always with human approval where it matters.",
   },
   {
     q: "What happens after launch?",
@@ -116,7 +120,7 @@ export const conversionFaq = [
   },
   {
     q: "Can you replace our current agency and tools?",
-    a: "That is the point. One partner for websites, apps, PWAs, and systems—so you stop paying for disconnected vendors that do not share accountability for results.",
+    a: "That is the point. One partner for websites, apps, PWAs, AI, and systems—so you stop paying for disconnected vendors that do not share accountability for results.",
   },
   {
     q: "Do you use Cal.com or another booking embed?",
@@ -130,7 +134,7 @@ export const conversionFaq = [
 
 export const midCta = {
   eyebrow: "Next step",
-  title: "Get a clear plan for your clinic’s digital stack.",
+  title: "Get a clear plan for your digital stack.",
   text: "Take the package quiz, click through demos, then book a live strategy slot — or reserve project start when you’re ready.",
   primary: "Take the package quiz",
   secondary: "Try live demos",
@@ -142,6 +146,6 @@ export const guarantee = {
     "Written scope before build begins",
     "Demo checkpoints on a fixed cadence",
     "You own the brand assets and product surfaces we ship",
-    "Human review always stays on clinical decisions and patient messaging",
+    "Human review stays on customer messaging and critical decisions",
   ],
 } as const;

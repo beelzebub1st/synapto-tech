@@ -36,12 +36,12 @@ export function AiAgentsSection() {
             {aiAgentsIntro.eyebrow}
           </SectionEyebrow>
           <SectionHeading className="text-white">
-            AI that works the way clinic teams actually work.
+            AI that works the way real teams actually work.
           </SectionHeading>
           <SectionLead className="text-white/65">
             Agents review applications, check missing information, draft
-            replies, and keep follow-ups moving—so coordinators and front desk
-            staff spend more time with patients, not paperwork.
+            replies, and keep follow-ups moving—so your people spend more time
+            with customers, not paperwork.
           </SectionLead>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg" className="w-full touch-manipulation sm:w-auto">

@@ -41,7 +41,7 @@ export function SiteHeader() {
             : "border-transparent bg-off-white/80 backdrop-blur-md"
       )}
     >
-      <div className="container-page flex h-14 items-center justify-between gap-3 sm:h-16 md:h-[4.25rem]">
+      <div className="container-page flex h-14 items-center justify-between gap-3 pt-[env(safe-area-inset-top)] sm:h-16 md:h-[4.25rem]">
         <Logo
           className="min-w-0 shrink"
           variant={darkHero ? "dark" : "light"}
@@ -97,17 +97,20 @@ export function SiteHeader() {
           )}
         </nav>
 
-        <div className="hidden items-center gap-2 lg:flex">
+        <div className="hidden items-center gap-2 md:flex">
           <Button
             asChild
             variant="ghost"
             size="sm"
-            className={darkHero ? "text-white hover:bg-white/10 hover:text-white" : undefined}
+            className={cn(
+              "hidden lg:inline-flex",
+              darkHero ? "text-white hover:bg-white/10 hover:text-white" : undefined
+            )}
           >
             <Link href="/login">Login</Link>
           </Button>
           <Button asChild size="sm">
-            <Link href="/book-a-demo">Book a strategy call</Link>
+            <Link href="/book-a-demo">Book a call</Link>
           </Button>
         </div>
 
@@ -130,7 +133,7 @@ export function SiteHeader() {
       <div
         className={cn(
           "fixed inset-x-0 bottom-0 z-40 overflow-y-auto overscroll-contain bg-off-white lg:hidden",
-          "top-14 sm:top-16",
+          "top-[calc(3.5rem+env(safe-area-inset-top))] sm:top-[calc(4rem+env(safe-area-inset-top))]",
           open ? "block" : "hidden"
         )}
       >

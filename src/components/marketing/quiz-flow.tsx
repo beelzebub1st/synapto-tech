@@ -401,12 +401,12 @@ export function QuizFlow() {
                       setContact({ ...contact, email: e.target.value })
                     }
                     className="h-12 border-white/15 bg-white/5 text-white placeholder:text-white/30"
-                    placeholder="you@clinic.com"
+                    placeholder="you@company.com"
                   />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="quiz-clinic" className="text-white/70">
-                    Clinic / brand
+                    Business / brand
                   </Label>
                   <Input
                     id="quiz-clinic"
@@ -416,7 +416,7 @@ export function QuizFlow() {
                       setContact({ ...contact, clinicName: e.target.value })
                     }
                     className="h-12 border-white/15 bg-white/5 text-white placeholder:text-white/30"
-                    placeholder="Northside Longevity"
+                    placeholder="Acme Studio"
                   />
                 </div>
                 {error ? (
@@ -460,7 +460,7 @@ export function QuizFlow() {
                 <Loader2 className="h-7 w-7 animate-spin" />
               </div>
               <h2 className="mt-6 font-display text-3xl font-semibold text-white sm:text-4xl">
-                Scoring your clinic path…
+                Scoring your digital path…
               </h2>
               <p className="mt-3 max-w-md text-sm text-white/50">
                 Matching urgency, team shape, and product need against Presence,

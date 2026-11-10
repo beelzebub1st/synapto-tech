@@ -30,13 +30,13 @@ export function HeroSection({ className }: { className?: string }) {
 
       <HeroProductPlane reduce={Boolean(reduce)} />
 
-      <div className="container-page relative flex min-h-[100svh] flex-col justify-end pb-14 pt-28 sm:pb-16 md:justify-center md:pb-20 md:pt-24">
-        <div className="max-w-3xl">
+      <div className="container-page relative flex min-h-[100svh] flex-col justify-end pb-[max(3.5rem,env(safe-area-inset-bottom))] pt-[max(7rem,calc(env(safe-area-inset-top)+5.5rem))] sm:pb-16 md:justify-center md:pb-20 md:pt-28 lg:pt-24">
+        <div className="max-w-3xl md:max-w-2xl lg:max-w-3xl">
           <motion.p
             initial={reduce ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-[clamp(2.75rem,8vw,5.75rem)] font-semibold leading-[0.92] tracking-[-0.03em] text-white"
+            className="font-display text-[clamp(2.4rem,9vw,5.75rem)] font-semibold leading-[0.92] tracking-[-0.03em] text-white"
           >
             {heroCopy.brandSignal}
           </motion.p>
@@ -45,7 +45,7 @@ export function HeroSection({ className }: { className?: string }) {
             initial={reduce ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-6 max-w-2xl text-balance text-[clamp(1.35rem,3.2vw,2rem)] font-medium leading-snug tracking-tight text-white/90"
+            className="mt-5 max-w-2xl text-balance text-[clamp(1.25rem,3.4vw,2rem)] font-medium leading-snug tracking-tight text-white/90 sm:mt-6"
           >
             {heroCopy.headline}
           </motion.h1>
@@ -54,7 +54,7 @@ export function HeroSection({ className }: { className?: string }) {
             initial={reduce ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-4 max-w-xl text-base leading-relaxed text-white/65 sm:text-lg"
+            className="mt-4 max-w-xl text-[0.95rem] leading-relaxed text-white/65 sm:text-lg"
           >
             {heroCopy.support}
           </motion.p>
@@ -63,7 +63,7 @@ export function HeroSection({ className }: { className?: string }) {
             initial={reduce ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.24, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-8 space-y-4"
+            className="mt-7 space-y-4 sm:mt-8"
           >
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <Button
@@ -86,7 +86,7 @@ export function HeroSection({ className }: { className?: string }) {
               </Button>
             </div>
             <p className="text-sm text-white/50">
-              Live booking · clickable demos · 2-min package quiz
+              Live booking · AI agents · demos · 2-min quiz
             </p>
           </motion.div>
         </div>
@@ -98,7 +98,7 @@ export function HeroSection({ className }: { className?: string }) {
 function HeroProductPlane({ reduce }: { reduce: boolean }) {
   return (
     <motion.div
-      className="pointer-events-none absolute inset-y-0 right-[-8%] hidden w-[62%] lg:block"
+      className="pointer-events-none absolute inset-y-0 right-[-8%] hidden w-[58%] opacity-70 md:block lg:w-[62%] lg:opacity-100"
       aria-hidden
       initial={reduce ? false : { opacity: 0, x: 40 }}
       animate={{ opacity: 1, x: 0 }}

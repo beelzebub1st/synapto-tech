@@ -15,7 +15,7 @@ import { pageMetadata } from "@/lib/page-metadata";
 
 export const metadata = pageMetadata(
   "AI Agents",
-  "Synapto AI Agents help clinic teams review applications, check incomplete forms, route enquiries, and automate follow-ups—with humans in control.",
+  "Synapto AI Agents help teams review applications, check incomplete forms, route enquiries, and automate follow-ups—with humans in control.",
   { path: "/ai-agents" }
 );
 
@@ -39,13 +39,13 @@ export default function AiAgentsPage() {
 
       <Section className="bg-white pt-0">
         <FadeIn>
-          <SectionEyebrow>How clinics use them</SectionEyebrow>
+          <SectionEyebrow>How teams use them</SectionEyebrow>
           <SectionHeading>
-            Practical agents for people who deal with patients every day.
+            Practical agents for people who deal with customers every day.
           </SectionHeading>
           <SectionLead>
             Think operations copilots: they inspect packets, prepare next steps,
-            and reduce admin drag. They do not replace clinicians.
+            and reduce admin drag. Critical decisions stay with your people.
           </SectionLead>
         </FadeIn>
 

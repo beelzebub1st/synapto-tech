@@ -21,7 +21,7 @@ export function DemosTeaserSection() {
             See every product surface before the call.
           </SectionHeading>
           <SectionLead className="text-white/65">
-            Website, PWA, mobile app, Clinic OS, automations, and AI agents —
+            Website, PWA, mobile app, Business OS, automations, and AI agents —
             click through the real experience.
           </SectionLead>
         </FadeIn>

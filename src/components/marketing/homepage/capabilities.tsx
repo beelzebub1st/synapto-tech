@@ -18,11 +18,11 @@ export function CapabilitiesSection() {
             What we build
           </p>
           <SectionHeading className="mx-auto">
-            Websites. Apps. PWAs. Systems.
+            Websites. Apps. PWAs. AI. Systems.
           </SectionHeading>
           <SectionLead className="mx-auto">
-            One team ships the patient-facing product and the operating layer
-            behind it—so your clinic is not stuck stitching vendors together.
+            One team ships the customer-facing product and the operating layer
+            behind it—so your business is not stuck stitching vendors together.
           </SectionLead>
         </FadeIn>
       </div>
@@ -59,7 +59,7 @@ export function CapabilitiesSection() {
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-border/80 pt-8 sm:flex-row sm:items-center">
           <p className="max-w-xl text-base font-medium text-midnight">
             Not sure where to start? We will recommend the highest-converting
-            first release for your clinic model.
+            first release for your business model.
           </p>
           <Button asChild size="lg" className="touch-manipulation shrink-0">
             <Link href="/book-a-demo">

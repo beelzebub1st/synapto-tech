@@ -1,8 +1,8 @@
 export const aiAgentsIntro = {
   eyebrow: "AI Agents",
-  headline: "Agents that handle the busywork—so your team can focus on patients.",
+  headline: "Agents that handle the busywork—so your team can focus on customers.",
   support:
-    "Synapto Agents review applications, check missing information, route enquiries, and keep follow-ups moving. Staff stay in control. Clinical decisions stay with licensed professionals.",
+    "Synapto Agents review applications, check missing information, route enquiries, and keep follow-ups moving. Staff stay in control. Critical decisions stay with your people.",
 } as const;
 
 export const aiAgents = [
@@ -14,11 +14,11 @@ export const aiAgents = [
     does: [
       "Checks required fields and attachments",
       "Highlights gaps in plain language",
-      "Drafts a patient-ready request for missing info",
+      "Drafts a customer-ready request for missing info",
     ],
     doesNot: [
-      "Diagnose or recommend treatment",
-      "Approve medical eligibility on its own",
+      "Make final acceptance decisions alone",
+      "Send messages without your approval rules",
     ],
   },
   {
@@ -27,18 +27,18 @@ export const aiAgents = [
     description:
       "Walks through applications and supporting documents against your checklist so coordinators spend time on exceptions—not repetitive scanning.",
     does: [
-      "Matches packets against your clinic checklist",
+      "Matches packets against your checklist",
       "Surfaces expired or unclear documents",
       "Creates a review summary for staff",
     ],
     doesNot: [
-      "Replace licensed review where required",
-      "Make final acceptance decisions",
+      "Replace required human review",
+      "Approve regulated decisions on its own",
     ],
   },
   {
-    name: "Front Desk Concierge Agent",
-    role: "Patient communication",
+    name: "Frontline Concierge Agent",
+    role: "Customer communication",
     description:
       "Drafts replies to common questions, routes urgent messages, and keeps tone consistent—ready for a human to send.",
     does: [
@@ -47,7 +47,7 @@ export const aiAgents = [
       "Hands off to the right teammate",
     ],
     doesNot: [
-      "Give medical advice",
+      "Invent brand claims you haven’t approved",
       "Send messages without your approval rules",
     ],
   },
@@ -62,15 +62,15 @@ export const aiAgents = [
       "Logs what was suggested vs sent",
     ],
     doesNot: [
-      "Override clinician schedules blindly",
-      "Pressure patients with aggressive messaging",
+      "Override calendars blindly",
+      "Pressure customers with aggressive messaging",
     ],
   },
   {
     name: "Ops Exception Agent",
     role: "Orders & admin",
     description:
-      "Watches for stalled orders, incomplete commerce checkouts, and admin tasks that need attention—so nothing quietly piles up.",
+      "Watches for stalled orders, incomplete checkouts, and admin tasks that need attention—so nothing quietly piles up.",
     does: [
       "Flags stuck orders and missing details",
       "Prioritizes what needs a human next",
@@ -78,30 +78,30 @@ export const aiAgents = [
     ],
     doesNot: [
       "Process payments without provider approval",
-      "Alter clinical records",
+      "Alter systems you have not connected",
     ],
   },
   {
     name: "Team Copilot Agent",
     role: "Internal assistance",
     description:
-      "Helps staff draft SOPs answers, summarize long threads, and prepare handoffs between front desk, coordinators, and clinicians.",
+      "Helps staff draft SOP answers, summarize long threads, and prepare handoffs between sales, ops, and leadership.",
     does: [
       "Summarizes long internal notes",
       "Drafts handoff briefs",
       "Answers from your approved knowledge base",
     ],
     doesNot: [
-      "Invent clinical protocols",
+      "Invent company policy",
       "Access systems you have not connected",
     ],
   },
 ] as const;
 
 export const aiGuardrails = [
-  "Human-in-the-loop by default for patient-facing messages",
-  "Configured to your clinic checklists—not generic internet advice",
-  "Designed for operations and admin—not autonomous clinical care",
-  "Access limited by roles; sensitive health data stays out of MVP storage unless a separately reviewed system is connected",
+  "Human-in-the-loop by default for customer-facing messages",
+  "Configured to your checklists—not generic internet advice",
+  "Designed for operations and admin—not unsupervised critical decisions",
+  "Access limited by roles; sensitive data stays out of MVP storage unless a separately reviewed system is connected",
   "Every agent action can leave an audit-friendly trail for your team",
 ] as const;

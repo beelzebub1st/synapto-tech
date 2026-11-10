@@ -115,7 +115,7 @@ export function ProposalForm({
           />
         </div>
         <div className="space-y-2 sm:col-span-2">
-          <Label htmlFor="prop-clinic">Clinic / brand</Label>
+          <Label htmlFor="prop-clinic">Business / brand</Label>
           <Input
             id="prop-clinic"
             required

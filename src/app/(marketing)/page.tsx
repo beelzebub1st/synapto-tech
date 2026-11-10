@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AiAgentsSection } from "@/components/marketing/homepage/ai-agents";
+import { AiServicesSection } from "@/components/marketing/homepage/ai-services";
 import { CapabilitiesSection } from "@/components/marketing/homepage/capabilities";
 import { CaseStudiesTeaserSection } from "@/components/marketing/homepage/case-studies-teaser";
 import { ComparisonSection } from "@/components/marketing/homepage/comparison";
@@ -24,10 +25,10 @@ import { StickyCtaBar } from "@/components/marketing/sticky-cta";
 import { brand } from "@/content/brand";
 
 export const metadata: Metadata = {
-  title: `${brand.name} — Websites, Apps, PWAs & Systems that Convert`,
+  title: `${brand.name} — Websites, Apps, AI Agents & Systems`,
   description: brand.tagline,
   openGraph: {
-    title: `${brand.name} — Websites, Apps, PWAs & Systems that Convert`,
+    title: `${brand.name} — Websites, Apps, AI Agents & Systems`,
     description: brand.tagline,
   },
 };
@@ -39,6 +40,7 @@ export default function HomePage() {
       <ProofStrip />
       <OutcomesSection />
       <CapabilitiesSection />
+      <AiServicesSection />
       <ResultsSection />
       <DemosTeaserSection />
       <ProblemSection />

@@ -220,7 +220,7 @@ export function BookingScheduler({
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="clinicName">Clinic / brand</Label>
+            <Label htmlFor="clinicName">Business / brand</Label>
             <Input
               id="clinicName"
               required

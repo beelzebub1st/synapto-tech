@@ -10,7 +10,7 @@ const steps = [
   {
     step: "01",
     title: "Discover",
-    text: "We map brand, patient journeys, apps, and the systems your team already depends on.",
+    text: "We map brand, customer journeys, apps, and the systems your team already depends on.",
   },
   {
     step: "02",
@@ -36,7 +36,7 @@ export function HowItWorksSection() {
         <SectionEyebrow>How it works</SectionEyebrow>
         <SectionHeading>From first call to a live operating system.</SectionHeading>
         <SectionLead>
-          A clear path from strategy to launch and ongoing growth—so your clinic
+          A clear path from strategy to launch and ongoing growth—so your team
           always knows what comes next.
         </SectionLead>
       </FadeIn>
